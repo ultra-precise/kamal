@@ -1,0 +1,12 @@
+This series is called “ES6 In Depth”, and the goal is to get way down into these features and explain exactly what’s going on and why. 
+
+-->
+But JS programmers don’t have to understand all the internals to be productive, any more than you need to understand all the internals of React or Backbone.
+<--
+
+=================
+Generators :
+
+The real benefit here is, we’re going to fix async programming.
+
+Currently most people are still doing async programming using callbacks. And it’s kind of a disaster. The code is a mess, errors get dropped, debugging is impossible. Using promises instead can reduce the amount of code by a third, and they make error handling much easier to get right. Using generators with promises will be a similar step up.
