@@ -1,0 +1,39 @@
+DOM Table Interface
+
+
+The DOM HTMLTableElement interface provides some convenience methods for creating and manipulating tables. Two frequently used methods are HTMLTableElement.insertRow and tableRow.insertCell.
+
+To add a row and some cells to an existing table:
+
+<table id="table0">
+ <tr>
+  <td>Row 0 Cell 0</td>
+  <td>Row 0 Cell 1</td>
+ </tr>
+</table>
+
+<script>
+var table = document.getElementById('table0');
+var row = table.insertRow(-1);
+var cell,
+    text;
+
+for (var i = 0; i < 2; i++) {
+  cell = row.insertCell(-1);
+  text = 'Row ' + row.rowIndex + ' Cell ' + i;
+  cell.appendChild(document.createTextNode(text));
+}
+</script>
+
+
+
+Notes:
+
+A table's innerHTML property should never be used to modify a table, although you can use it to write an entire table or the content of a cell.
+
+If DOM Core methods document.createElement and Node.appendChild are used to create rows and cells, IE requires that they are appended to a "tbody" element, whereas other browsers will allow appending to a table element (the rows will be added to the last tbody element).
+
+There are a number of other convenience methods (HTMLTableElement  Methods) belonging to the table interface that can be used for creating and modifying tables.
+
+
+
