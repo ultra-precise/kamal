@@ -1,0 +1,14 @@
+https://developer.mozilla.org/en-US/
+https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/
+https://bugzilla.mozilla.org/show_bug.cgi?id=932080
+
+
+https://hacks.mozilla.org/category/es6-in-depth/
+https://hacks.mozilla.org/author/jorendorffmozillacom/
+https://blog.mozilla.org/jorendorff/
+
+
+http://fitzgeraldnick.com/
+https://hacks.mozilla.org/author/nfitzgeraldmozilla-com/
+http://twitter.com/fitzgen
+
