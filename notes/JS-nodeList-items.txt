@@ -1,0 +1,9 @@
+A nodeList is an array of elements, like the kind that is returned by the method document.getElementsByTagName(). Items in a nodeList are accessed by index in either of two ways:
+
+
+list.item(1)
+list[1]
+
+
+
+These two are equivalent. In the first, item() is the single method on the nodeList object. The latter uses the typical array syntax to fetch the second item in the list.
