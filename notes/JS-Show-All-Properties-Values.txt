@@ -1,0 +1,55 @@
+Show "Property = Value" of any Object "a" ---->
+
+
+var a = navigator;
+========================
+var c = [];
+for (let b in a) {
+c.push(b);
+}
+c.sort().forEach(function(d){
+console.log(d + " = " + a[d])
+});
+
+
+
+-----------------
+var c = [];
+for (let b in a) {
+c.push(b);
+}
+c.sort().forEach(function(d){
+document.write("<span style='color:red;'>" + d + "</span>" + " = " + a[d] + "<br />")
+});
+
+
+
+----------------------
+var ht = document.querySelector("html");
+var propertiesList = document.createElement("ul");
+
+var c = [];
+for (let b in a) {
+c.push(b);
+}
+
+c.sort().forEach(function(d){
+
+var singleProperty = document.createElement("li");
+var spanz = document.createElement("span");
+spanz.setAttribute('style', 'color:SALMON;');
+
+spanz.textContent = d;
+var tn = document.createTextNode(" = " + a[d]);
+
+singleProperty.appendChild(spanz);
+singleProperty.appendChild(tn);
+propertiesList.appendChild(singleProperty);
+
+});
+
+ht.insertBefore(propertiesList, ht.firstChild);
+
+
+
+------------------
