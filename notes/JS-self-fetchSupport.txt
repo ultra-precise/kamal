@@ -1,0 +1,7 @@
+Fetch API support can be detected by checking for the existence of Headers, Request, Response or fetch() on the Window or Worker scope. For example:
+
+if (self.fetch) {
+    // run my fetch request here
+} else {
+    // do something with XMLHttpRequest?
+}
