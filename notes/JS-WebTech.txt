@@ -1,0 +1,41 @@
+Sending / Receiving Data Online =>
+
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+
+
+Use XMLHttpRequest (XHR) objects to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing. XMLHttpRequest is used heavily in Ajax programming.
+
+
+Despite its name, XMLHttpRequest can be used to retrieve any type of data, not just XML, and it supports protocols other than HTTP (including file and ftp).
+
+If your communication needs involve receiving event or message data from the server, consider using "server-sent events" through the "EventSource" interface. For full-duplex communication, "WebSockets" may be a better choice.
+
+
+More recent browsers, including Firefox, also support listening to the XMLHttpRequest events via standard addEventListener() APIs in addition to setting on* properties to a handler function.
+
+
+function reqListener () {
+  console.log(this.responseText);
+}
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "http://www.example.org/example.txt");
+oReq.send();
+
+
+Note: You need to add the event listeners before calling open() on the request. Otherwise the "progress" events will not fire.
+
+
+Progress events exist for both download and upload transfers. The download events are fired on the XMLHttpRequest object itself. The upload events are fired on the XMLHttpRequest.upload object :
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("progress", updateProgress);
+oReq.upload.addEventListener("progress", updateProgress);
+
+
+Note: Progress events are not available for the file: protocol.
+
+
+
+
+==========================
