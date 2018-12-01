@@ -1,0 +1,260 @@
+DOCUMENT :
+
+--------------------------------------
+Constructor ->
+
+
+Document()
+It is a Constructor. It creates a new Document object.
+
+----------------------------------
+Properties ->
+
+
+Document.body
+Returns the <body> or <frameset> node of the current document.
+
+Document.characterSet
+Returns the character set being used by the document.
+
+Document.compatMode
+Indicates whether the document is rendered in quirks or strict mode.
+
+Document.contentType
+Returns the Content-Type from the MIME Header of the current document.
+
+Document.doctype
+Returns the Document Type Definition (DTD) of the current document.
+
+Document.documentElement
+Returns the html code of Element that is a direct child of the document.
+
+Document.documentURI
+Returns the document location as a string.
+
+Document.embeds
+Returns a list of embedded <embed> elements within the current document.
+
+Document.forms
+Returns a list of <form> elements within the current document.
+
+Document.head
+Returns the <head> element of the current document.
+
+Document.hidden
+Returns a Boolean value indicating if the page is considered hidden or not.
+
+document.implementation.createDocument()
+Creates and returns an XMLDocument.
+
+document.implementation.createDocumentType()
+Creates and returns a DocumentType.
+
+document.implementation.createHTMLDocument('title')
+Creates and returns an HTML Document.
+
+Document.images
+Returns a list of images in the current document.
+
+Document.links
+Returns a list of all hyperlinks in the document.
+
+Document.plugins
+Returns a list of available plugins.
+
+Document.scripts
+Returns all the <script> elements on the document.
+
+Document.scrollingElement
+Returns a reference to the Element that scrolls the document.
+
+Document.selectedStyleSheetSet
+Returns which style sheet set is currently in use.
+
+Document.styleSheetSets
+Returns a list of style sheet sets available on the document.
+
+Document.visibilityState
+Returns a string denoting visibility state of the document. Possible values are visible,  hidden,  prerender, and unloaded.
+
+document.body.childElementCount
+Returns the number of children elements of ParentNode(body).
+
+document.body.children
+Returns a live HTMLCollection containing all of the Element objects that are children of this ParentNode(body), omitting all of its non-element nodes.
+
+document.body.firstElementChild
+Returns the first node which is both a child of this ParentNode(body) and is also an Element, or null if there is none.
+
+document.body.lastElementChild
+Returns the last node which is both a child of this ParentNode(body) and is an Element, or null if there is none.
+
+Document.cookie
+Returns a semicolon-separated list of cookies for that document or sets a single cookie.
+
+Document.defaultView
+Returns a reference to window object. It means this:
+Document.defaultView.innerWidth = window.innerWidth
+Document.defaultView.innerHeight = window.innerHeight
+
+Document.designMode
+Gets/sets the ability to edit the whole document. It means if you set designMode property's value to "on" then you can edit the whole webpage LIVE on your screen.
+
+Document.dir
+Gets/sets language-directionality (rtl/ltr) of the document.
+
+Document.domain
+Gets/sets the domain of the current document.
+
+Document.lastModified
+Returns the date and time on which the document was last modified.
+
+Document.URL
+Returns the document location as a string.
+
+Document.location
+Returns the URI of the current document.
+
+Document.readyState
+Returns loading status of the document.
+
+Document.referrer
+Returns URI of the page that linked to this page.
+
+Document.title
+Sets or gets title of the current document.
+
+Document(Or ShadowRoot).activeElement
+Returns the Element within the shadow tree that has focus.
+
+Document.querySelector('div').requestFullscreen()
+This method issues an asynchronous request to make the element be displayed full-screen. It's not guaranteed that the element will be put into full screen mode. This method must be invoked from a user interaction or a device orientation change, else it will fail.
+
+Document.fullscreenElement
+The element that's currently in full screen mode for this document.
+
+Document(Or ShadowRoot).pointerLockElement
+Returns the element set as the target for mouse events while the pointer is locked. 
+null if lock is pending, pointer is unlocked, or if the target is in another document.
+
+Document(Or ShadowRoot).styleSheets
+Returns a StyleSheetList of CSSStyleSheet objects for stylesheets explicitly linked into, or embedded in a document.
+
+------------------------------------------------
+Event handlers ->
+
+
+Document.onfullscreenchange
+Is an EventHandler representing the code to be called when the fullscreenchange event is raised.
+
+Document.onfullscreenerror
+Is an EventHandler representing the code to be called when the fullscreenerror event is raised.
+
+Document.onreadystatechange
+Represents the event handling code for the readystatechange event.
+
+Document.onselectionchange
+Is an EventHandler representing the code to be called when the selectionchange event is raised.
+
+Document.onvisibilitychange
+Is an EventHandler representing the code to be called when the visibilitychange event is raised.
+
+Document.onwheel
+Represents the event handling code for the wheel event.
+
+Document.onabort
+Is an EventHandler representing the code to be called when the abort event is raised.
+
+Document.onblur
+Is an EventHandler representing the code to be called when the blur event is raised.
+
+Document.onerror
+Is an OnErrorEventHandler representing the code to be called when the error event is raised.
+
+Document.onfocus
+Is an EventHandler representing the code to be called when the focus event is raised.
+
+Document.onchange
+Is an EventHandler representing the code to be called when the change event is raised.
+
+Document.onclick
+Is an EventHandler representing the code to be called when the click event is raised.
+
+Document.onclose
+Is an EventHandler representing the code to be called when the close event is raised.
+
+Document.oncontextmenu
+Is an EventHandler representing the code to be called when the contextmenu event is raised.
+
+Document.onpointerdown
+Is an EventHandler representing the code to be called when the pointerdown event is raised.
+
+Document.onpointermove
+Is an EventHandler representing the code to be called when the pointermove event is raised.
+
+Document.onpointerup
+Is an EventHandler representing the code to be called when the pointerup event is raised.
+
+Document.onpointercancel
+Is an EventHandler representing the code to be called when the pointercancel event is raised.
+
+Document.onpointerover
+Is an EventHandler representing the code to be called when the pointerover event is raised.
+
+Document.onpointerout
+Is an EventHandler representing the code to be called when the pointerout event is raised.
+
+Document.onpointerenter
+Is an EventHandler representing the code to be called when the pointerevent event is raised.
+
+Document.onpointerleave
+Is an EventHandler representing the code to be called when the pointerleave event is raised.
+
+Document.onprogress
+Is an EventHandler representing the code to be called when the progress event is raised.
+
+Document.onratechange
+Is an EventHandler representing the code to be called when the ratechange event is raised.
+
+Document.onreset
+Is an EventHandler representing the code to be called when the reset event is raised.
+
+Document.onresize
+Is an EventHandler representing the code to be called when the resize event is raised.
+
+Document.onscroll
+Is an EventHandler representing the code to be called when the scroll event is raised.
+
+Document.onselect
+Is an EventHandler representing the code to be called when the select event is raised.
+
+Document.onselectstart
+Is an EventHandler representing the code to be called when the selectionchange event is raised, i.e. when the user starts to make a new text selection on a web page.
+
+Document.onselectionchange
+Is an EventHandler representing the code to be called when the selectionchange event is raised, i.e. when the text selected on a web page changes.
+
+Document.onsubmit
+Is an EventHandler representing the code to be called when the submit event is raised.
+
+---------------------------------------------
+Methods ->
+
+
+Document.adoptNode()
+Adopt node from an external document. It means CUT a node from external document and PASTE it in your current document.
+
+Document.importNode()
+Import node from an external document. It means COPY a node from external document and PASTE it in your current document.
+
+Document.createAttribute()
+Creates a new Attr object and returns it.
+
+Document.createComment()
+Creates a new comment node and returns it.
+
+
+
+
+
+
