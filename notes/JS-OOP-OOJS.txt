@@ -1,0 +1,402 @@
+Object-oriented programming (OOP) ==>
+
+(and definition of: "encapsulated", "namespace")
+
+The basic idea of OOP is that we use objects to model real world things that we want to represent inside our programs, and/or provide a simple way to access functionality that would otherwise be hard or impossible to make use of.
+
+Objects can contain related data and code, which represent information about the thing you are trying to model, and functionality or behavior that you want it to have. Object data (and often, functions too) can be stored neatly (the official word is "encapsulated") inside an object package (which can be given a specific name to refer to, which is sometimes called a "namespace"), making it easy to structure and access; objects are also commonly used as data stores that can be easily sent across the network
+
+-------------------------------------
+object template -->
+
+(and definition of: "abstraction")
+
+Let's consider a simple program that displays information about the students and teachers at a school. Here we'll look at OOP theory in general, not in the context of any specific programming language.
+
+To start this off, we could return to our Person object type from our first objects article, which defines the generic data and functionality of a person. There are lots of things you could know about a person (their address, height, shoe size, DNA profile, passport number, significant personality traits ...) , but in this case we are only interested in showing their name, age, gender, and interests, and we also want to be able to write a short introduction about them based on this data, and get them to say hello. This is known as "abstraction" — creating a simple model of a more complex thing, which represents its most important aspects in a way that is easy to work with for our program's purposes.
+
+--------------------------------------------
+The Fundamental Mechanism of OOP -->
+
+(and definition of: "Class", "Constructor Function", "Object Instances", "Instantiation")
+
+From our class, we can create object instances — objects that contain the data and functionality defined in the class. From our Person class, we can now create some actual people.
+
+
+
+When an object instance is created from a class, the class's "constructor function" is run to create it. This process of creating an object instance from a class is called "instantiation" — the object instance is "instantiated" from the class.
+
+
+Object Instance is "instantiated" from the class :
+
+Instantiation = Class -> Constructor Function -> Object Instances
+
+
+
+
+Constructors and object instances : 
+
+(and "constructor functions", "prototype chain")
+
+JavaScript uses special functions called "constructor functions" to define objects and their features. They are useful because you'll often come across situations in which you don't know how many objects you will be creating; constructors provide the means to create as many objects as you need in an effective way, attaching data and functions to them as required.
+
+When a new object instance is created from a constructor function, its core functionality (as defined by its prototype, which we'll explore in the article Object prototypes) is linked to via a reference chain called a "prototype chain".
+
+Let's explore creating classes via constructors and creating object instances from them in JavaScript. First of all, we'd like you to make a new local copy of the oojs.html file we saw in our first Objects article.
+
+
+IMPORTANT: 
+"The constructor function is JavaScript's version of a class."
+
+
+The constructor function is JavaScript's version of a class. You'll notice that it has all the features you'd expect in a function, although it doesn't return anything or explicitly create an object — it basically just defines properties and methods. You'll see the this keyword being used here as well — it is basically saying that whenever one of these object instances is created, the object's name property will be equal to the name value passed to the constructor call, and the greeting() method will use the name value passed to the constructor call too.
+
+
+Note: 
+A constructor function's name usually starts with a capital letter — this convention is used to make constructor functions easier to recognize in code.
+
+
+HERE IS OUR FIRST CONSTRUCTOR FUNCTION -->
+
+
+
+function Person(name) {
+  this.name = name;
+  this.greeting = function() {
+    alert('Hi! I\'m ' + this.name + '.');
+  };
+}
+
+
+
+How do we call a constructor to create some objects? 
+
+
+HERE ARE OUR TWO OBJECTS CREATED BY OUR CONSTRUCTOR FUNCTION -->
+
+
+var person1 = new Person('Bob');
+var person2 = new Person('Sarah');
+
+
+Now test it by entering the following lines one-by-one into your browser's JavaScript console (F12/Ctrl Shift I) :
+
+person1.name
+person1.greeting()
+person2.name
+person2.greeting()
+
+
+
+Cool! You'll now see that we have two new objects on the page, each of which is stored under a different namespace — when you access their properties and methods, you have to start calls with person1 or person2; the functionality contained within is neatly packaged away so it won't clash with other functionality. They do, however, have the same "name" property and greeting() method available. Note that they are using their own "name" value that was assigned to them when they were created; this is one reason why it is very important to use "this" keyword, so they will use their own values, and not some other value.
+
+
+
+In each case, the "new" keyword is used to tell the browser we want to create a new object instance, followed by the function name with its required parameters contained in parentheses, and the result is stored in a variable — very similar to how a standard function is called.
+
+
+After the new objects have been created, the person1 and person2 variables contain the following objects: 
+
+
+{
+  name: 'Bob',
+  greeting: function() {
+    alert('Hi! I\'m ' + this.name + '.');
+  }
+}
+
+{
+  name: 'Sarah',
+  greeting: function() {
+    alert('Hi! I\'m ' + this.name + '.');
+  }
+}
+
+
+
+Note that when we are calling our constructor function, we are defining greeting() every time, which isn't ideal. To avoid this, we can define functions on the prototype instead, which we will look at later.
+
+--------------------------------------------------------
+How to access Object's "Properties and methods" -->
+
+Method-1 : "Dot notation" -->
+
+person.age
+person.name.first
+person.interests[0]
+person.interests[1]
+person.greeting()
+
+-------
+Method-2 : "Bracket notation" -->
+
+person['age']
+person['name']['first']
+person.['interests'][0]
+person.['interests'][1]
+person.['greeting']()
+
+
+
+===============================================
+
+Objects are called "associative arrays" because they map strings to values in the same way that arrays map index numbers to values.
+
+===========================================
+Create Object ==>
+
+
+var person = {
+
+name : {
+first : 'Bob',
+last : 'Smith'
+}
+
+};
+
+
+
+Object (person) = namesapce
+Object (name) = sub-namespace
+
+
+-----------------------------------------
+access object properties ==>
+
+Dot Notation
+Bracket Notation
+
+person.name.first
+person['name']['first']
+
+
+------------------------------------------
+One useful aspect of bracket notation is that it can be used to set not only member values dynamically, but member names too. Let's say we wanted users to be able to store custom value types in their people data, by typing the member name and value into two text inputs? We could get those values like this:
+
+
+var myDataName = nameInput.value;
+var myDataValue = nameValue.value;
+
+
+we could then add this new member name and value to the person object like this:
+
+
+person[myDataName] = myDataValue;
+
+
+Adding a property to an object using the method above isn't possible with dot notation, which can only accept a literal member name, not a variable value pointing to a name.
+
+
+===================================================
+Methods to Create Object Instances ==>
+
+
+-----------------------------------------------------
+Method 1 : "Declaring Object Literal" -->
+
+
+As with many things in JavaScript, creating an object often begins with defining and initializing a variable.
+
+var person = {};
+
+
+If you enter person into your JS console and press the button, you should get the following result:
+
+[object Object]
+
+
+Congratulations, you've just created your first object. Job done! But this is an empty object, so we can't really do much with it. Let's update our object to look like this: 
+
+
+var person = {
+  name: ['Bob', 'Smith'],
+  age: 32,
+  gender: 'male',
+  interests: ['music', 'skiing'],
+  bio: function() {
+    alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+  },
+  greeting: function() {
+    alert('Hi! I\'m ' + this.name[0] + '.');
+  }
+};
+
+
+After saving and refreshing, try entering some of the following into the JavaScript console on your browser devtools:
+
+person.name
+person.name[0]
+person.age
+person.interests[1]
+person.bio()
+person.greeting()
+
+You have now got some data and functionality inside your object, and are now able to access them with some nice simple syntax!
+
+
+So what is going on here? Well, an object is made up of multiple members, each of which has a name (e.g. name and age above), and a value (e.g. ['Bob', 'Smith'] and 32). Each name/value pair must be separated by a comma, and the name and value in each case are separated by a colon. The syntax always follows this pattern:
+
+
+var objectName = {
+  member1Name: member1Value,
+  member2Name: member2Value,
+  member3Name: member3Value
+};
+
+
+The value of an object member can be pretty much anything — in our person object we've got a string, a number, two arrays, and two functions. The first four items are data items, and are referred to as the object's properties. The last two items are functions that allow the object to do something with that data, and are referred to as the object's methods.
+
+An object like this is referred to as an object literal — we've literally written out the object contents as we've come to create it. This is in contrast to objects instantiated from classes, which we'll look at later on.
+
+It is very common to create an object using an object literal when you want to transfer a series of structured, related data items in some manner, for example sending a request to the server to be put into a database. Sending a single object is much more efficient than sending several items individually, and it is easier to work with than an array, when you want to identify individual items by name.
+
+
+----------------------------------------------------
+Method 2 : "CONSTRUCTOR FUNCTION" -->
+
+
+
+function Person(name) {
+  this.name = name;
+  this.greeting = function() {
+    alert('Hi! I\'m ' + this.name + '.');
+  };
+}
+
+
+
+How do we call a constructor function to create some objects? 
+
+
+HERE ARE OUR TWO OBJECTS CREATED BY OUR CONSTRUCTOR FUNCTION -->
+
+
+var person1 = new Person('Bob');
+var person2 = new Person('Sarah');
+
+
+Now test it by entering the following lines one-by-one into your browser's JavaScript console (F12/Ctrl Shift I) :
+
+person1.name
+person1.greeting()
+person2.name
+person2.greeting()
+
+
+
+Cool! You'll now see that we have two new objects on the page, each of which is stored under a different namespace — when you access their properties and methods, you have to start calls with person1 or person2; the functionality contained within is neatly packaged away so it won't clash with other functionality. They do, however, have the same "name" property and greeting() method available. Note that they are using their own "name" value that was assigned to them when they were created; this is one reason why it is very important to use "this" keyword, so they will use their own values, and not some other value.
+
+
+
+In each case, the "new" keyword is used to tell the browser we want to create a new object instance, followed by the function name with its required parameters contained in parentheses, and the result is stored in a variable — very similar to how a standard function is called.
+
+
+After the new objects have been created, the person1 and person2 variables contain the following objects: 
+
+
+{
+  name: 'Bob',
+  greeting: function() {
+    alert('Hi! I\'m ' + this.name + '.');
+  }
+}
+
+{
+  name: 'Sarah',
+  greeting: function() {
+    alert('Hi! I\'m ' + this.name + '.');
+  }
+}
+
+
+
+Note that when we are calling our constructor function, we are defining greeting() every time, which isn't ideal. To avoid this, we can define functions on the prototype instead, which we will look at later.
+
+++++++++++--------------------------------------------------------
+How to access Object's "Properties and methods" -->
+
+Method-1 : "Dot notation" -->
+
+person.age
+person.name.first
+person.interests[0]
+person.interests[1]
+person.greeting()
+
+-------
+Method-2 : "Bracket notation" -->
+
+person['age']
+person['name']['first']
+person.['interests'][0]
+person.['interests'][1]
+person.['greeting']()
+
+++++++--------------------------------
+------------------------------------------------------
+Method 3 : "Object() constructor" -->
+
+
+var person1 = new Object();
+
+
+This stores an empty object in the "person1" variable. You can then add properties and methods to this object using dot or bracket notation as desired; try these examples in your console: 
+
+
+person1.name = 'Chris';
+person1['age'] = 38;
+person1.greeting = function() {
+  alert('Hi! I\'m ' + this.name + '.');
+};
+
+
+
+You can also pass an "Object Literal" to the Object() constructor as a parameter, to prefill it with properties/methods. Try this in your JS console: 
+
+
+var person1 = new Object({
+  name: 'Chris',
+  age: 38,
+  greeting: function() {
+    alert('Hi! I\'m ' + this.name + '.');
+  }
+});
+
+
+------------------------------------------------------------
+Method 4 : "create() method" -->
+
+
+Constructors can help you give your code order—you can create constructors in one place, then create instances as needed, and it is clear where they came from.
+
+However, some people prefer to create object instances without first creating constructors, especially if they are creating only a few instances of an object. JavaScript has a built-in method called create() that allows you to do that. With it, you can create a new object based on any existing object.
+
+With your finished exercise from the previous sections loaded in the browser, try this in your JavaScript console:
+
+
+var person2 = Object.create(person1);
+
+
+Now try these:
+
+
+person2.name
+person2.greeting()
+
+
+You'll see that person2 has been created based on person1 — it has the same properties and method available to it.
+
+
+
+IMPORTANT :
+"One limitation of create() method is that IE8 does not support it. So 'constructors' may be more effective if you want to support older browsers."
+
+
+We'll explore the effects of create() in more detail later on.
+
+=========================================================================
+
+
+
+
