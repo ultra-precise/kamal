@@ -1,0 +1,36 @@
+Responsive Web Design:
+
+
+
+Managing Browser-Screen Orientation (Portrait, Landscape) :
+
+
+
+/* For portrait browser-screen */
+
+
+@media screen and (orientation: portrait) {
+
+/* CSS Styles for Portrait */
+
+}
+
+
+
+
+
+/* For landscape browser-screen */
+
+
+@media screen and (orientation: landscape) {
+
+/* CSS Styles for Landscape */
+
+}
+
+
+
+Note: The orientation media query actually applies based on the orientation of the browser window (or iframe) not the orientation of the device.
+
+
+---------------------------
