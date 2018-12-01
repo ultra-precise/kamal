@@ -1,0 +1,262 @@
+ES 2015 (More commonly referred to as ES6) introduced Arrow Functions into JavaScript. Arrow functions are a more concise syntax for writing function expressions. Arrow Functions have two main benefits:
+
+- A shorter syntax then typical functions
+- No binding of this
+
+Before we dive into arrow functions, lets take a look at a regular function:
+
+
+function add2(num) {
+   return num + 2;
+ }
+
+add2(2);
+// 4
+
+
+In the above code, we have a function that takes any number as input, and returns that number plus two. The exact same function can be written with an arrow function:
+
+
+const add2 = num => num + 2
+
+add2(2);
+// 4
+
+
+The code above illustrates benefit #1 of arrow funcitons: A shorter syntax. The code has been condensed to just one line of code! It’s okay if you don’t understand exactly what’s happening with this arrow function. I’m going to break down the syntax a little more now.
+
+
+Syntax
+Here’s what an arrow function looks like:
+
+
+
+(parameters) => { statements }
+
+
+
+
+
+If there are no parameters, the function is expressed like this:
+
+
+() => { statements }
+
+
+** is equivalent to **
+
+function example(){
+  // do something...
+}
+
+
+
+
+When you only have one parameter (as we had in the add2 example above), the opening parenthesis are optional:
+
+
+parameter => { statements }
+
+
+** is equivalent to **
+
+function example(parameter){
+  // do something...
+}
+
+
+
+Finally, if the expression is being returned (as we also had in the add2 example above), you remove the brackets around your statements:
+
+
+parameter => expression
+
+
+** is equivalent to **
+
+function example(parameter){
+  return expression;
+}
+
+
+
+
+Example Arrow Function :
+
+Now that you know the syntax, lets take a deeper look at our add2 example from earlier. Open up your Chrome Developer Console (Windows: Ctrl + Shift + J)(Mac: Cmd + Option + J) and type the following:
+
+
+const add2 = num => num + 2
+
+
+What we’re doing is assigning the variable add2 to an arrow function. This function has only one parameter, num. As we only have one parameter, we have omitted the parenthesis around it. The function then returns the value of num + 2. As we’re returning a value, we’ve omitted the brackets around the expression we want to return.
+
+You can now invoke the function and see it in action. Here are some examples you could run:
+
+
+
+add2(6);
+// 8
+add2(10);
+// 12
+
+
+No binding of "this" :
+As mentioned earlier, the second benefit of arrow functions is that they have no binding of "this". Instead, "this" is bound lexically. Simply put, it means that "this" will keep its meaning from its original context.
+
+Lets look at example to help understand what exactly this means. Lets create a constructor function and then create an instance of it.
+
+
+
+function Counter() {
+  this.num = 0;
+}
+
+var a = new Counter();
+
+
+With a constructor function, the value of this is bound to the new object being created. In this case, that’s the a object. We can test this by logging:
+
+console.log(a.num)
+// 0
+
+
+As expected, when we log "a.num", we get 0. This proves that when we used our constructor function, "this" was bound to our "a" object.
+
+Now, consider that we want to increase the value of "a.num" every second. To do this, we can use the built in setInterval() function. setInterval() is a function that calls another function, repeatedly, after a set number of milliseconds. Below, I’ve added this code into our Counter constructor function:
+
+
+function Counter() {
+  this.num = 0;
+  this.timer = setInterval(function add() {
+    this.num++;
+    console.log(this.num);
+  }, 1000);
+}
+
+
+The Counter function now has "this.timer" set equal to our setInterval() function. Every 1000 milliseconds (one second), the code within the brackets will run. That means we’ll increase "this.num" by one, then log the value of "this.num" to the console.
+
+Lets try it out! In the console, create a new instance of our Counter function and see what happens:
+
+
+var b = new Counter();
+// NaN
+// NaN
+// NaN
+// ...
+
+
+
+Uh oh, that didn’t work. The function is logging to the console every second, but we’re not getting the expected value — instead we’re getting NaN (not a number).
+
+Get rid of the annoying console log by clearing the interval:
+
+
+clearInterval(b.timer);
+
+
+Lets step back and try to understand why this code isn’t working.
+
+Our setInterval function isn’t being called on a declared object. It also isn’t being called with the "new" keyword (only the Counter()function is). And lastly, we’re not using call, bind, or apply. setIntervalis just a normal function. Because none of these rules apply, the value of "this" in setInterval must be bound to the global object! Lets test this theory by changing the code within "this.timer" to instead log the value of "this" every second:
+
+
+function Counter() {
+  this.num = 0;
+this.timer = setInterval(function add() {
+    console.log(this);
+  }, 1000);
+}
+
+
+Now, in the console, create a new instance of our Counter function and see what happens:
+
+
+var c = new Counter();
+// Window {}..
+// Window {}..
+// Window {}..
+// ...
+
+
+Awesome, the "window" object is indeed logged out. Clear the interval by running:
+
+clearInterval(c.timer);
+
+
+Knowing now that "this" is bound to the global object, it will hopefully make sense as to why our original function was logging NaN. You see, "this.num" was referring the "num" property on the "window" object — "window.num", which doesn’t exist!
+
+
+---------------------------------------------------
+
+How do we fix this? Arrow Functions. Arrow functions don’t bind "this". The "this" is bound lexically. By using an arrow function here, we would allow "this" to keep it’s original binding.
+
+Take a look at the code below. Everything is identical, except for the fact that we’re now using an arrow function in our "this.timer" method:
+
+function Counter() {
+  this.num = 0;
+this.timer = setInterval(() => {
+    this.num++;
+    console.log(this.num);
+  }, 1000);
+}
+
+
+Now when we create a new instance of Counter…
+
+
+var d = new Counter();
+// 1
+// 2
+// 3
+// ...
+
+
+It works!
+
+The console logs increasing number each second. The original binding created by the Counter constructor function has been preserved. Inside the setInterval() function, "this" is now being bound to our newly created "d" object!
+
+Go ahead and clear the interval with:
+
+clearInterval(d.timer);
+
+
+For proof of concept we can again try logging "this" from within our arrow function. We’ll create a variable called "that" in our Counter function. We’ll then log out "true" if the value of "this" in our setInterval function is equal to the value of "this" (via "that" ) in the parent Counter function:
+
+
+
+function Counter() {
+  var that = this;
+this.timer = setInterval(() => {
+    console.log(this === that);
+  }, 1000);
+}
+
+
+var e = new Counter();
+// true
+// true
+// ...
+
+
+As expected, we log true each time! Again, clear the interval with:
+
+clearInterval(e.timer);
+
+-------------------------------------------------------------------------
+
+Key Takeaways :
+
+
+Remember the two main benefits of arrow functions:
+
+- A shorter syntax
+- Lexical binding of "this"
+
+
+There’s a little bit more to arrow functions than I’ve explained here, but this article should provide you with enough knowledge to now be able to understand an arrow function when you see it in the wild.
+
+Closing Notes:
+Thanks for reading! If you’re ready to finally learn Web Development, check out the Best Courses for Learning Full Stack Web Development. If you’re just looking to improve your JavaScript Skills, check out: A Beginners Guide to Advanced JavaScript
+
+I publish 4 articles on web development each week. Please consider entering your email here if you’d like to be added to my once-weekly email list, or follow me on Twitter.
