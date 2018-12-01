@@ -1,0 +1,54 @@
+[Create a Form with Buttons] ->
+
+Create > "Forms" section> Navigation > Horizontal Tabs
+
+-----------------------------------
+
+[Select a design theme for Form] ->
+
+Right Click on Form > Layout View > Form Layout Tools > Design > Themes
+
+-----------------------------------
+[edit Title(Label) of Form] ->
+
+Double Click on "Navigation Form"
+
+-----------------------------------
+[edit name of Button] ->
+
+Right Click on Button > Properties > All > Caption
+
+-----------------------------------
+[Add a module(VBA Code) to Button] ->
+
+(To add a VBA code module to Form/Report, you must switch the Form to "Design view" and set the "HasModule property" of "Form/Report" to "Yes")
+
+Right Click on Form > Design View > Right Click on Button > Form Properties > All > Has Module > Yes
+
+
+Right Click on Form > Layout View > Right Click on Button > Properties > Event > On Click > Right Click inside value-box of "On Click" property > Build > Code Builder > Paste your VBA code here and save the Form
+
+
+------------------------------------
+[ADVANCE OPTIONS] ->
+
+1. Add more forms and reports to a navigation buttons of HomePage Form ->
+
+Drag the form or report from the Navigation Pane to the [Add New] button.
+Access creates the new navigation button and displays the form or report in the object pane.
+
+2. Change color and shape of a navigation button ->
+
+Right Click on Form > Layout View > select Button > Form Layout Tools > Format > Control Formatting section > Quick Styles/Change Shape/Shape Effects
+
+3. Set the navigation form as the default display form ->
+
+Because a navigation form is often used as a switchboard or “home page” for a database, it makes sense to display it by default each time that the database is opened. Also, because the Access Navigation Pane is not available in a browser, specifying a default Web Display Form is a very important step in creating a Web database.
+
+Use this procedure to set the navigation form as the default display form.
+
+File > Help > Options > Current Database > Application Options > Display Form
+
+To set the default form that is displayed when you open the database in Access, under "Application Options", select the form from the "Display Form" list.
+
+======================================
