@@ -1,0 +1,173 @@
+Inheritance in JavaScript ==>
+
+How to create "child" classes (constructors) that inherit features from their "parent" classes ?
+
+How do we create an object in JavaScript that inherits from another object ?
+
+Getting Started -->
+
+Example:
+
+In this example you'll find the same Person() constructor that we've been using all the way through the module, with a slight difference — we've defined only the properties inside the constructor:
+
+
+
+function Person(first, last, age, gender, interests) {
+  this.name = {
+    first,
+    last
+  };
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+};
+
+
+
+The methods are all defined on the constructor's prototype. For example:
+
+
+Person.prototype.greeting = function() {
+  alert('Hi! I\'m ' + this.name.first + '.');
+};
+
+
+
+We want to create a Teacher() class, like the one we described in our initial object-oriented definition, which inherits all the members from Person(), but also includes:
+
+1. A new property, "subject" — this will contain the subject the teacher teaches.
+2. An updated greeting() method, which sounds a bit more formal than the standard greeting() method — more suitable for a teacher addressing some students at school.
+
+
+
+We need to follow 3 steps to inherit properties/methods from Person() class to Teacher() child-class:
+
+
+STEP-1: "Inheriting properties"
+
+Person.call(this, properties_variables...)
+
+STEP-2: "Inheriting methods"
+
+Teacher.prototype = Object.create(Person.prototype);
+
+STEP-3: "Correcting prototype.constructor"
+
+Teacher.prototype.constructor = Teacher;
+
+
+
+
+---------------------------------
+STEP-1 : "Inheriting properties"
+
+The first thing we need to do is create a Teacher() constructor — add the following below the existing code: 
+
+
+
+function Teacher(first, last, age, gender, interests, subject) {
+
+  Person.call(this, first, last, age, gender, interests);
+
+  this.subject = subject;
+}
+
+
+NOTE:
+If there are not any parameters-properties, then you can call the constructor without parameters_variables.  Which means that if the constructor you are inheriting from, doesn't take its properties' values from parameters, then you don't need to specify them as additional arguments in call() method :
+
+example:
+
+function Brick() {
+  this.width = 10;
+  this.height = 20;
+}
+
+In this example you can inherit "width" and "height" properties without providing any parameters/arguments to call() method, like this:
+
+function BlueGlassBrick() {
+  Brick.call(this);
+  this.opacity = 0.5;
+  this.color = 'blue';
+}
+
+-------------------------------
+STEP-2: "Inheriting methods"
+
+Teacher.prototype = Object.create(Person.prototype);
+
+
+---------------------------------------------
+STEP-3: "Correcting prototype.constructor"
+
+
+After adding this line, Teacher.prototype's "constructor property" is now equal to Person()
+This can become a problem, so we need to set this right.
+
+Teacher.prototype.constructor = Teacher;
+
+
+================================================================
+Modifying inherited method ==>
+
+
+Teacher.prototype.greeting = function() {
+  var prefix;
+
+  if (this.gender === 'male' || this.gender === 'Male' || this.gender === 'm' || this.gender === 'M') {
+    prefix = 'Mr.';
+  } else if (this.gender === 'female' || this.gender === 'Female' || this.gender === 'f' || this.gender === 'F') {
+    prefix = 'Mrs.';
+  } else {
+    prefix = 'Mx.';
+  }
+
+  alert('Hello. My name is ' + prefix + ' ' + this.name.last + ', and I teach ' + this.subject + '.');
+};
+
+
+==================================================
+Testing our Example ==>
+
+Now that you've entered all the code, try creating an object instance from Teacher() by putting the following code at the bottom of your JavaScript:
+
+
+var teacher1 = new Teacher('Dave', 'Griffiths', 31, 'male', ['football', 'cookery'], 'mathematics');
+
+
+Now save and refresh, and try accessing the properties and methods of your new teacher1 object, for example:
+
+teacher1.name.first;
+teacher1.interests[0];
+teacher1.bio();
+teacher1.subject;
+teacher1.greeting();
+teacher1.farewell();
+
+These should all work just fine. The queries on lines 1, 2, 3, and 6 access members inherited from the generic Person() constructor (class). The query on line 4 accesses a member that is available only on the more specialized Teacher() constructor (class). The query on line 5 would have accessed a member inherited from Person(), except for the fact that Teacher() has its own member with the same name, so the query accesses that member.
+
+
+The technique we covered here is not the only way to create inheriting classes in JavaScript, but it works OK, and it gives you a good idea about how to implement inheritance in JavaScript.
+
+You might also be interested in checking out some of the new ECMAScript features that allow us to do inheritance more cleanly in JavaScript (see Classes). We didn't cover those here, as they are not yet supported very widely across browsers. All the other code constructs we discussed in this set of articles are supported as far back as IE9 or earlier, and there are ways to achieve earlier support than that.
+
+A common way is to use a JavaScript library — most of the popular options have an easy set of functionality available for doing inheritance more easily and quickly. CoffeeScript for example provides class, extends, etc.
+
+==========================================================================
+When should you use objects, constructor and inheritance in JavaScript? ==>
+
+In small projects it is a waste of time to use objects and inheritance just for the sake of it when you don't need them. But as your code bases get larger, you are more likely to find a need for it. If you find yourself starting to create a number of objects that have similar features, then creating a generic object type to contain all the shared functionality and inheriting those features in more specialized object types can be convenient and useful.
+
+Note: Because of the way JavaScript works, with the prototype chain, etc., the sharing of functionality between objects is often called "delegation". Specialized objects delegate functionality to a generic object type.
+
+When using inheritance, you are advised to not have too many levels of inheritance, and to keep careful track of where you define your methods and properties. It is possible to start writing code that temporarily modifies the prototypes of built-in browser objects, but you should not do this unless you have a really good reason. Too much inheritance can lead to endless confusion, and endless pain when you try to debug such code.
+
+Ultimately, objects are just another form of code reuse, like functions or loops, with their own specific roles and advantages. If you find yourself creating a bunch of related variables and functions and want to track them all together and package them neatly, an object is a good idea. Objects are also very useful when you want to pass a collection of data from one place to another. Both of these things can be achieved without use of constructors or inheritance. If you only need a single instance of an object, then you are probably better off just using an object literal, and you certainly don't need inheritance.
+
+===========================================================
+What "Skills" you have achieved from our articles ==>
+
+This article has covered the remainder of the core OOJS theory and syntax that we think you should know now. At this point you should understand JavaScript object and OOP basics, prototypes and prototypal inheritance, how to create classes (constructors) and object instances, add features to classes, and create subclasses that inherit from other classes.
+
+==========================The End====================
+
