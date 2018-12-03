@@ -1,0 +1,77 @@
+<script lang="javascript" src="js-xlsx-master/dist/xlsx.full.min.js"></script>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js-xlsx-master/jszip.js"></script>
+<script src="js-xlsx-master/xlsx.js"></script>
+-->
+
+<script>
+    var ExcelToJSON = function() {
+
+      this.parseExcel = function(file) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          var data = e.target.result;
+          var workbook = XLSX.read(data, {
+            type: 'binary'
+          });
+          /*workbook.SheetNames.forEach(function(sheetName) {
+            // Here is your object
+            var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+            var json_object = JSON.stringify(XL_row_object);
+            console.log(JSON.parse(json_object));
+var tt = document.createTextNode(json_object);
+var tn = document.querySelector('#xlx_json');
+tn.appendChild(tt);
+return true;
+          });*/
+
+var sheetName = workbook.SheetNames[0];
+
+(function(sheetName) {
+            // Here is your object
+            var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+            var json_object = JSON.stringify(XL_row_object);
+            console.log(JSON.parse(json_object));
+var tt = document.createTextNode(json_object);
+var tn = document.querySelector('#xlx_json');
+tn.appendChild(tt);
+console.log(JSON.parse(json_object)[0].counter);
+console.log(JSON.parse(json_object)[1].counter);
+          })(sheetName);
+
+
+
+        };
+
+        reader.onerror = function(ex) {
+          console.log(ex);
+        };
+
+        reader.readAsBinaryString(file);
+      };
+  };
+
+  function handleFileSelect(evt) {
+    
+    var files = document.getElementById('input').files[0]; // FileList object
+    var xl2json = new ExcelToJSON();
+    xl2json.parseExcel(files);
+console.log(files.name, files.size, files.type);
+  }
+	
+
+ 
+</script>
+
+<form enctype="multipart/form-data">
+    <input id="input" type="file"  name="files[]">
+</form>
+
+    <textarea class="form-control" rows=35 cols=120 id="xlx_json"></textarea>
+
+    <script>
+        document.getElementById('input').addEventListener('change', handleFileSelect, false);
+
+    </script>	
