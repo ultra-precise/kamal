@@ -1,0 +1,17 @@
+<!Doctype html>
+<html>
+<body>
+
+<script type="text/javascript">
+//HOW TO DOWNLOAD YOUR WEBPAGE INTO A NEW FILE:
+
+var uri = 'data:text/csv;charset=utf-8,' + document.querySelector('html').outerHTML;
+var link = document.createElement("a");    
+    link.href = uri;
+link.textContent = "MYWEBPAGE" + ".html";
+     link.download = "MYWEBPAGE.html";
+    document.body.appendChild(link);
+
+</script>
+</body>
+</html>
