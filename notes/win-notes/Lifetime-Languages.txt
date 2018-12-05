@@ -1,0 +1,107 @@
+Client:
+javascript, TypeScript
+
+Server:
+nodejs, php
+
+Windows:
+C++, C#, .NET-Framework( C#, ASP-Tool[ASP.Net] )
+
+--------
+-----------------------
+------------------------------
+ASP.NET All mysteries solved :
+
+-----------------
+10 THINGS TO KNOW ABOUT THE .NET FRAMEWORK
+
+https://www.grandcircus.co/blog/things-to-know-about-dot-net/
+
+-----------
+If you are considering becoming a .NET developer through our .NET (C#) Development Bootcamp, here are 10 things to know about the language you should know before you embark on our bootcamp:
+
+https://www.grandcircus.co/dot-net-developer-bootcamp
+----------
+
+I HEARD THAT .NET WAS ONLY FOR WINDOWS OR PC USERS. IS THAT TRUE?
+
+Not anymore! Thanks to .NET Core, a set of tools consisting of the runtime, library and compiler components, you can create apps that run on Windows, Mac OS X and Linux. .NET Core runtime, libraries, and compiler are all open source on GitHub and are taking contributions.
+
+-------
+WHERE DOES .NET FIT IN THE OPEN SOURCE WORLD?
+
+Several parts of .NET were made available under open source licenses, meaning any developer can contribute to it. For example, the C# compiler Roslyn was made open source by Microsoft under the Apache License. The source code of Roslyn can be downloaded from gitHub, and guidelines on how to participate and contribute were made available.
+
+-------
+WHAT IS .NET ANYWAY?
+
+.NET (pronounced dot net) is a framework that provides a programming guidelines that can be used to develop a wide range of applications–––from web to mobile to Windows-based applications. The .NET framework can work with several programming languages such as C#, VB.NET, C++ and F#. At Grand Circus, we use C#.
+
+--------
+WHERE DOES C# FIT IN ALL OF THIS?
+
+C# (pronounced “see-sharp”) is the actual coding language that we write inside of the .NET framework. C# is an object-oriented programming language, meaning it can increase productivity in the development process. C# boasts type-safety, garbage collection, simplified type declarations, versioning and scalability support, and other features that make developing solutions faster and easier.
+
+--------
+WHAT IS VISUAL STUDIO, AND HOW DOES IT FIT INTO ALL OF THIS?
+
+Visual Studio is a very powerful Integrated Development Environment (IDE) where you actually write your C# or .NET programs. It’s popular because it supports code editing, interface design, server management, debugging, and performance analysis. You can download Visual Studio for free.
+
+-------
+HOW BIG IS THE IS THE .NET LIBRARY?
+
+.NET has a huge collection of predefined class libraries (pre-written code) that has support for simple and complex data structures. Essentially, that means you can rely on the work of hundreds of other developers and pull in already-written code into your own programs. .NET even has specific libraries for security, encryption, and database access.
+
+-------
+I SEE WE’LL COVER WEB COMPONENTS. WILL I BE A FULL-STACK DEVELOPER AFTER THIS BOOTCAMP?
+
+Although the .NET web development bootcamp is covering some front-end topics such as Javascript, CSS and HTML, it is focused on the server-end and will not provide the in-depth knowledge needed for front-side development. It will, however, be a great foundation to continue to grow in front-end development.
+
+--------
+ASP.NET – A TOOL FOR THE WEB
+
+ASP.NET is the main tool in the .NET framework for building web pages and websites with HTML, CSS, JavaScript and server scripting. You can use any of the .NET languages to write ASP.NET web applications.
+
+----------
+THERE ARE A LOT OF WAYS TO DESCRIBE .NET DEVELOPERS
+
+Here’s just a sample of potential jobs you’d apply to after our bootcamp:
+
+.NET Software Developer / Intern
+.NET Software Engineer / Intern
+.NET Web Developer / Intern
+.NET Engineer / Intern
+
+-----------
+.NET IS USED BY A LOT OF COMPANIES
+
+All sorts of companies use .NET including Dell, Accenture, TCS, HCL, Epic Systems. Many major Detroit-area companies use .NET as well, including TitleSource and Quicken Loans.
+
+---------
+-------------
+Whew. That was a lot of information! Ready to take the next step in your journey to becoming a .NET Developer?
+
+Learn more about our 10-week .NET (C#) Coding Bootcamp.
+
+https://www.grandcircus.co/dot-net-developer-bootcamp.php
+
+===================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
