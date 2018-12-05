@@ -1,0 +1,26 @@
+1. Goal:
+
+To create a Windows software.
+
+------
+2. How to create:
+
+A Windows software is developed by C++ language.
+All Windows softwares are developed by C++ language.
+Windows Operating System is also developed by C++ language.
+
+------
+3. How to code C++ :
+
+C++ coding is done by using IDE.
+
+IDE (Integrated Development Environment) always has 3 features in-built:
+(Text-Editor + Compiler + Debugger)
+
+------
+4. Which IDE to use:
+
+Microsoft Visual Studio IDE
+
+------
+
