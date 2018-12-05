@@ -64,3 +64,43 @@ const inventory = [
 const result = inventory.find( fruit => fruit.name === 'cherries' );
 
 console.log(result) // { name: 'cherries', quantity: 5 }
+
+---------------
+Find file element in array of input-multiple-Files object :
+
+
+var handleFileSelect = function (evt) {
+
+var files = document.getElementById('input').files; // FileList object
+var xl2json = new ExcelToJSON();
+
+var FL = [];
+
+FL[0] = Array.prototype.find.call(files, f => f.name === 'killCount.txt');
+FL[1] = Array.prototype.find.call(files, f => f.name === 'headShots.txt');
+
+
+Array.prototype.forEach.call(FL, function(g){
+    xl2json.parseExcel(g);
+console.log(g.name, g.size, g.type);
+});
+
+ 
+</script>
+
+<form enctype="multipart/form-data">
+    <input id="input" type="file"  name="files[]" multiple>
+</form>
+
+    <textarea class="form-control" rows=35 cols=120 id="xlx_json"></textarea>
+
+    <script>
+        document.getElementById('input').addEventListener('change', handleFileSelect, false);
+
+    </script>	
+
+
+
+
+
+
