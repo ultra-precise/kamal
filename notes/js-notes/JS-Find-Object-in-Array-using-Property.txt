@@ -1,0 +1,66 @@
+Array.prototype.find()
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
+find() method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
+-------------
+
+OR USE :
+
+Array.prototype.findIndex()
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+
+findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating no element passed the test.
+
+------------
+
+If you want to find an element whose value you know already then you can use indexOf, 
+but you cannot find Object via one of Object's property by using indexOf method.
+
+Array.prototype.indexOf()
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+
+indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+
+==============================
+
+
+Find an Object element in Array by using one of its Property :
+
+
+How to find an Object in array if you know its property?
+How to find a file-object in Files array (input-multiple-files)?
+
+Find an object in an array by one of its properties :
+
+Example-1 :
+
+var inventory = [
+    {name: 'apples', quantity: 2},
+    {name: 'bananas', quantity: 0},
+    {name: 'cherries', quantity: 5}
+];
+
+function isCherries(fruit) { 
+    return fruit.name === 'cherries';
+}
+
+console.log(inventory.find(isCherries)); 
+// { name: 'cherries', quantity: 5 }
+
+
+--------
+Using ES2015 arrow function :
+
+const inventory = [
+    {name: 'apples', quantity: 2},
+    {name: 'bananas', quantity: 0},
+    {name: 'cherries', quantity: 5}
+];
+
+const result = inventory.find( fruit => fruit.name === 'cherries' );
+
+console.log(result) // { name: 'cherries', quantity: 5 }
