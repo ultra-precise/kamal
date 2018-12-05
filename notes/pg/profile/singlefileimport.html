@@ -1,0 +1,59 @@
+<script lang="javascript" src="js-xlsx-master/dist/xlsx.full.min.js"></script>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js-xlsx-master/jszip.js"></script>
+<script src="js-xlsx-master/xlsx.js"></script>
+-->
+
+<script>
+function stats(killCount){
+console.log("kills : " + killCount);
+
+}
+
+
+    var ExcelToJSON = function() {
+
+      this.parseExcel = function(file) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+
+var killCount = e.target.result;
+console.log(killCount);
+var tt = document.createTextNode(killCount);
+var tn = document.querySelector('#xlx_json');
+tn.appendChild(tt);
+stats(killCount);
+        };
+
+        reader.onerror = function(ex) {
+          console.log(ex);
+        };
+
+        reader.readAsBinaryString(file);
+      };
+  };
+
+  var handleFileSelect = function (evt) {
+    
+    var files = document.getElementById('input').files[0]; // FileList object
+    var xl2json = new ExcelToJSON();
+    xl2json.parseExcel(files);
+console.log(files.name, files.size, files.type);
+  }
+	
+
+ 
+</script>
+
+<form enctype="multipart/form-data">
+    <input id="input" type="file"  name="files[]">
+</form>
+
+    <textarea class="form-control" rows=35 cols=120 id="xlx_json"></textarea>
+
+    <script>
+        document.getElementById('input').addEventListener('change', handleFileSelect, false);
+
+    </script>	
