@@ -1,0 +1,11 @@
+Avoid JSON-P and eval() :
+
+instead use XMLHttpRequest or Fetch-Promise.
+
+
+Older AJAX techniques might not rely on XMLHttpRequest. For example, JSONP combined with the eval() function. It works, but it's not recommended because of serious security issues. The only reason to use this is for legacy browsers that lack support for XMLHttpRequest or JSON, but those are very old browsers indeed! Avoid such techniques.
+
+---------
+Avoid XML format :
+
+instead use JSON format.
