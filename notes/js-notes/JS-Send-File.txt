@@ -1,0 +1,96 @@
+Send file via XMLHttpRequest and FormData :
+
+
+Building an HTTP request by hand can be overwhelming. Fortunately, a recent XMLHttpRequest specification provides a convenient and simpler way to handle form data requests with the FormData object.
+
+The FormData object can be used to build form data for transmission, or to get the data within a form element to manage how it's sent. Note that FormData objects are "write only", which means you can change them, but not retrieve their contents.
+
+Example-1 :
+
+Using a standalone FormData object:
+
+<button type="button" onclick="sendData({test:'ok'})">Click Me!</button>
+
+
+function sendData(data) {
+  var XHR = new XMLHttpRequest();
+  var FD  = new FormData();
+
+  // Push our data into our FormData object
+  for(name in data) {
+    FD.append(name, data[name]);
+  }
+
+  // Define what happens on successful data submission
+  XHR.addEventListener('load', function(event) {
+    alert('Yeah! Data sent and response loaded.');
+  });
+
+  // Define what happens in case of error
+  XHR.addEventListener('error', function(event) {
+    alert('Oops! Something went wrong.');
+  });
+
+  // Set up our request
+  XHR.open('POST', 'https://example.com/cors.php');
+
+  // Send our FormData object; HTTP headers are set automatically
+  XHR.send(FD);
+}
+
+
+-----------
+
+Using FormData bound to a Form element :
+
+You can also bind a FormData object to a <form> element. This creates a FormData that represents the data contained in the form.
+
+The HTML is typical:
+
+<form id="myForm">
+  <label for="myName">Send me your name:</label>
+  <input id="myName" name="name" value="John">
+  <input type="submit" value="Send Me!">
+</form>
+
+
+But JavaScript takes over the Form :
+
+window.addEventListener("load", function () {
+  function sendData() {
+    var XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    var FD = new FormData(form);
+
+    // Define what happens on successful data submission
+    XHR.addEventListener("load", function(event) {
+      alert(event.target.responseText);
+    });
+
+    // Define what happens in case of error
+    XHR.addEventListener("error", function(event) {
+      alert('Oops! Something went wrong.');
+    });
+
+    // Set up our request
+    XHR.open("POST", "https://example.com/cors.php");
+
+    // The data sent is what the user provided in the form
+    XHR.send(FD);
+  }
+ 
+  // Access the form element...
+  var form = document.getElementById("myForm");
+
+  // ...and take over its submit event.
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    sendData();
+  });
+});
+
+
+
+
