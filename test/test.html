@@ -1,0 +1,328 @@
+
+ Open Broadcaster Software
+Log in
+ Windows Support
+Question / Help Browser Source doesn't use all the html
+ Thread starterGiblix  Start dateJan 3, 2017
+Giblix
+New Member
+Jan 3, 2017#1
+Hi,
+
+In order to prevent my stream screen getting bogged up with tons of overlay messages I've written a webpage. It is fairly simple HTML with some CSS for animated effects and markups. All of the code seems to work fine. The image slides in and folds out with the accompanying content. However part of the code states that this action needs to refresh and thus repeat itself at steady intervals. This however doesn't happen.
+
+<meta http-equiv="refresh" content="14">
+
+That line is from the test document. So it would repeat about 3-4 seconds after the first appearance. When I open the file in any webbrowser it keeps repeating non-stop. In the latest OBS Studio, where I added this as Browser Source >> Local File... it only happens once. It does reset if I switch scenes and return to the scene including the Browser Source.
+
+What can I do too make this auto refresh happen?
+
+greets,
+EBrito
+EBrito
+Active Member
+Jan 3, 2017#2
+An idea:
+
+Copy file in Dropbox Public directory (Providing you se Dropbox)
+Copy public Dropbox link and use it in OBS.
+
+Maybe it works, maybe not.
+Giblix
+New Member
+Jan 3, 2017#3
+I'm sorry. No dropbox or any of that such on my end, would it work with Google storage ?
+EBrito
+EBrito
+Active Member
+Jan 3, 2017#4
+I think it will have the same possible result.
+
+Maybe it works or maybe not. (About refreshing in OBS, I mean)
+
+Try!
+Giblix
+New Member
+Jan 4, 2017#5
+Tried it, but still the same issue. :O
+EBrito
+EBrito
+Active Member
+Jan 4, 2017#6
+Try adding this code:
+
+<head>
+<script>
+function reload(){
+location.href=location.href
+}
+setInterval('reload()',14000)
+</script>
+</head>
+EBrito
+EBrito
+Active Member
+Jan 5, 2017#7
+@Giblix Did it work?
+Giblix
+New Member
+Jan 6, 2017#8
+sorry Brito. Didn't have a chance too try. Swamped at work :S
+
+As a quick question.
+Location.Href = Location.href
+the second 1 needs to be replaced by my file location?
+Simes
+Member
+Jan 6, 2017#9
+No. That tells the browser to load the same page as it's currently on. So, a reload.
+Giblix
+New Member
+Jan 6, 2017#10
+well the webbrowser doesn't need the reload. when i load the page in there everything works.
+however when i use BrowserSource in OBS...that does NOT do the reloads.
+
+by the way. the suggested code didn't change anything :(
+EBrito
+EBrito
+Active Member
+Jan 8, 2017#11
+@Xaymar Maybe you have to check this. It seems browser source has a little bug.
+Thank you.
+
+(I think you are in charge of Browser Source in Mantis. Isn´t it?)
+Osiris
+Forum Moderator
+Jan 8, 2017#12
+No, there is no bug in the browser source with that.
+That piece of javascript works fine.
+EBrito
+EBrito
+Active Member
+Jan 8, 2017#13
+Thank you for clarifying, Osiris.
+Giblix
+New Member
+Jan 9, 2017#14
+the full code i'm using, which works in Chrome. But only shows once on stream, but doesn't repeat when using the browser source...
+
+I've written it in notepad++ and saved it locally as an HTML file. in OBS Studio 17.0.0 I added a Browser Source and had it use the localized file.
+
+Hope this gives usefull feedback to help find a solution.
+
+<html>
+<head>
+<title>Mijn stream slide ins</title>
+<meta http-equiv="refresh" content="600">
+<style>
+@font-face {
+font-family: 'Dolce Vita';
+src: url('fonts/Dolce Vita.ttf');
+}
+#reminderContainer {
+width: 0px;
+height: 0px;
+background: #769272;
+position: absolute;
+top: 0px;
+left: 0px;
+overflow: hidden;
+color: white;
+font-family: 'Dolce Vita';
+-webkit-box-shadow: 0px 0px 20px #4d6849;
+-webkit-animation: animateReminder 10s 24s 1;
+}
+#reminderHeader {
+width: 300px;
+height: 26px;
+background: #4d6849;
+position: relative;
+overflow: hidden;
+text-align: center;
+font-size: 24px;
+}
+#reminderContent {
+width: 300px;
+height: 94px;
+background: #769272;
+position: relative;
+overflow: hidden;
+color: white;
+}
+#twitterLogo {
+width: 90px;
+height: 90px;
+float: left;
+}
+
+@-webkit-keyframes animateReminder {
+0%, 100% {
+width: 0px;
+height: 24px;
+}
+20%, 80% {
+width: 300px;
+height: 24px;
+}
+30%, 70% {
+width: 300px;
+height: 120px;
+}
+}
+</style> 
+</head>
+<body>
+<div id="reminderContainer">
+<div id="reminderHeader">
+<span>Follow</span>
+</div>
+
+<div id="reminderContent">
+
+<div="reminderContentText">
+<span>
+<br>
+<font size="5">
+If you're having a good time<br>
+then love tap that button
+</font>
+</span>
+</div>
+</div>
+</div>
+</body>
+</html>
+EBrito
+EBrito
+Active Member
+Jan 9, 2017#15
+Tested both OBS 32 and 64 bits.
+
+Shows message first time, but never again.
+Chrome, Edge, and Firefox work fine
+Explorer does not show either the first time
+Simes
+Member
+Jan 9, 2017#16
+Change the iterations value at the end of your "-webkit-animation" line from "1" to "infinite". You'll need to adjust the timings so that the animation includes the pause you want to include.
+EBrito
+EBrito
+Active Member
+Jan 9, 2017#17
+Saved as test.html
+@Giblix change test.html with your file name
+
+
+Load, wait 20 sec and show 10 sec animation
+30 seconds refresh
+
+So to refresh every 5 minutes ---- mistake: this is 2 minutes 30 seconds
+setTimeout("location.href = 'test.html';",150000);
+
+
+-webkit-animation-duration: 10s;
+-webkit-animation-delay: 140s;
+
+EDIT:
+============
+10 Minutes
+
+setTimeout("location.href = 'test.html';",600000);
+
+
+-webkit-animation-duration: 10s;
+-webkit-animation-delay: 590s;
+==================
+
+
+
+
+=============
+<html>
+<head>
+<title>Mijn stream slide ins</title>
+<script type="text/JavaScript">
+setTimeout("location.href = 'test.html';",30000);
+</script>
+<style>
+@font-face {
+font-family: 'Dolce Vita';
+src: url('fonts/Dolce Vita.ttf');
+}
+#reminderContainer {
+width: 0px;
+height: 0px;
+background: #769272;
+position: absolute;
+top: 0px;
+left: 0px;
+overflow: hidden;
+color: white;
+font-family: 'Dolce Vita';
+-webkit-box-shadow: 0px 0px 20px #4d6849;
+-webkit-animation-name: animateReminder;
+-webkit-animation-duration: 10s;
+-webkit-animation-delay: 20s;
+-webkit-animation-iteration-count: 1;
+
+}
+#reminderHeader {
+width: 300px;
+height: 26px;
+background: #4d6849;
+position: relative;
+overflow: hidden;
+text-align: center;
+font-size: 24px;
+}
+#reminderContent {
+width: 300px;
+height: 94px;
+background: #769272;
+position: relative;
+overflow: hidden;
+color: white;
+}
+#twitterLogo {
+width: 90px;
+height: 90px;
+float: left;
+}
+
+@-webkit-keyframes animateReminder {
+0%, 100% {
+width: 0px;
+height: 24px;
+}
+20%, 80% {
+width: 300px;
+height: 24px;
+}
+30%, 70% {
+width: 300px;
+height: 120px;
+}
+}
+</style>
+</head>
+<body>
+<div id="reminderContainer">
+<div id="reminderHeader">
+<span>Follow</span>
+</div>
+
+<div id="reminderContent">
+
+<div="reminderContentText">
+<span>
+<br>
+<font size="5">
+If you're having a good time<br>
+then love tap that button
+</font>
+</span>
+</div>
+</div>
+</div>
+</body>
+</html>
