@@ -1,8 +1,6 @@
 <html>
 <body id='p'>
-<iframe src='https://github.com/?url=https://www.google.com'>
 
-</iframe>
 <div>
   
   
@@ -11,9 +9,26 @@
   
   <script>
     function(res){
-    documemt.querySelector('div').textContent = res;
+    
     }
     
+    function reqListener () {
+  console.log(this.responseText);
+      
+      documemt.querySelector('#p').textContent = this.responseText;
+      
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "https://streaming-graph.facebook.com/208141293426783/alertlist?access_token=EAAitZBynzzEEBAATdIZCTqtELubuutlAxvNWMO1JjmyyTLFZCsqSDtk73yGQgokJNHV83kdxUROQVfhZBG2ygmgFA86w55mNRZBMTRTo9o743kLZBq5ExUAwfWdUpIlVbFJ47efyucGUHLyRmCzZAumdrJZC4myPOYGtdYKb1E2xspIswX87qBJICy28JaERD6HqZAiYjgkNCRgZDZD&f ields=share_alerts");
+    oReq.responseType = "text";
+oReq.send();
+    
+    
+        
+        
+        
     </script>
   
   </body>
