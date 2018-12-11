@@ -2,21 +2,15 @@
 <body>
 
 
-<textarea contextmenu="test"> OY</textarea>
-<menu type="context" id="test">
-    <menuitem label="alert" onclick="alert('the alert label has been clicked')" />
-</menu>
-
 <script>
-var JsonExport = {"a":"b"};
-var str = JSON.stringify(JsonExport);
+function reqListener () {
+  console.log(this.responseText);
+}
 
-var txtFile = "/tmp/test.txt";
-   var file = new File(str,txtFile,{type: "text/plain"});
-   
-   log("opening file...");
-   log("writing file..");
-   
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "https://ultra-precise.github.io/kamal/allexpm/ff.js");
+oReq.send();
    
 </script>
 
