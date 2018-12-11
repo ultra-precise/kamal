@@ -4,12 +4,14 @@
 
 <script>
 function reqListener () {
-  console.log(this.responseText);
+  console.log(this);
+  
 }
 
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "https://ultra-precise.github.io/kamal/allexpm/ff.js");
+oReq.responseType = "json";
 oReq.send();
    
 </script>
