@@ -1,0 +1,26 @@
+<html>
+<body>
+
+
+<textarea contextmenu="test"> OY</textarea>
+<menu type="context" id="test">
+    <menuitem label="alert" onclick="alert('the alert label has been clicked')" />
+</menu>
+
+<script>
+var JsonExport = {"a":"b"};
+var str = JSON.stringify(JsonExport);
+
+var txtFile = "/tmp/test.txt";
+   var file = new File(str,txtFile,{type: "text/plain"});
+   
+   log("opening file...");
+   log("writing file..");
+   
+   
+</script>
+
+
+
+</body>
+</html>
