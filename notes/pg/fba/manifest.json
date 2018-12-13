@@ -1,0 +1,28 @@
+{
+    "name": "fbg",
+    "version": "1.0",
+    "description": "fbg",
+    "manifest_version": 2,
+
+
+
+
+"content_scripts": [
+   {
+     "matches": ["*://*.bing.com/*"],
+     "run_at": "document_idle",
+     "js": ["b.js"]
+   },
+
+{
+     "matches": ["*://*.google.com/*"],
+     "run_at": "document_idle",
+     "js": ["g.js"]
+}
+
+
+ ]
+
+
+
+}
