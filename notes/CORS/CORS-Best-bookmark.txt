@@ -1,1 +1,0 @@
-https://www.carlosag.net/articles/enable-cors-access-control-allow-origin.cshtml
