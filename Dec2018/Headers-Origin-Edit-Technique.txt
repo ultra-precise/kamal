@@ -1,3 +1,0 @@
-Web pages cannot change the Origin header, but extensions can modify the request headers via the chrome.webRequest API. But ws:// and wss:// are not supported by this API, so this doesn't help unless the server also supports other means of communication via http(s) (e.g. long-polling).
-
-There is still a solution though: Simply load a (known) web page at the desired origin in an iframe (e.g. https://example.com/favicon.ico or https://example.com/robots.txt) and use a content script to open the WebSocket from there
