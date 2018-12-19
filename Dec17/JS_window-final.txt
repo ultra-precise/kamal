@@ -1,0 +1,251 @@
+window :
+=================================
+Properties :
+
+
+fullScreen => 
+
+if (window.fullScreen) {
+  // it's fullscreen!
+}
+else {
+  // not fullscreen!
+}
+
+
+performance => Returns a Performance object, which includes timing and navigation attributes, each of which is an object providing performance-related data
+
+
+
+name => Gets/sets name of window (used in window.postMessage)
+frames => Returns an array of subframes in current window
+length => count of frames in window
+frameElement => Returns an element in which the window is embedded, or null if the window is not embedded
+opener => reference to window that opened this current window
+parent => reference to parent of current window or subframe
+top => reference to topmost window in window-hierarchy
+
+
+
+location => Gets/sets URL of current window object, location.properties : href, origin, host, hostname, pathname, protocol, port, reload()
+navigator => reference to navigator object (Read Only)
+closed => indicates whether current window is closed or not. return values = "true", "false"
+console => reference to console object which provides access to browser's debugging console
+document => reference to document that the window contains
+history => reference to history object
+
+
+
+innerHeight => Gets height of content area of browser window including horizontal scrollbar (Read Only)
+innerWidth => Gets width of content area of browser window including vertical scrollbar (Read Only)
+outerHeight => Gets height of outside of browser window (Read Only)
+outerWidth => Gets width of outside of browser window (Read Only)
+pageXOffset => alias for window.scrollX
+pageYOffset => alias for window.scrollY
+screen => reference to screen object
+screenX and screenLeft => (Read only) Both return horizontal distance from left border of browser viewport to left side of screen
+screenY and screenTop => (Read only) Both return vertical distance from top border of browser viewport to top side of screen
+scrollbars => (Read only) Returns scrollbars object, whose visibility can be toggled in window (window.open)
+scrollX => Returns number of pixels that document has already been scrolled horizontally
+scrollY => Returns number of pixels that document has already been scrolled vertically
+visualViewport => Returns a VisualViewport object which represents visual viewport for window
+
+
+
+sessionStorage => Returns a reference to session storage object used to store data that may only be accessed by origin that created it
+localStorage => Returns a reference to local storage object used to store data that may only be accessed by origin that created it
+
+status => Gets/sets text in statusbar at the bottom of browser
+statusbar => Returns statusbar object, whose visibility can be toggled in window
+
+
+self => Returns a reference to current window itself
+window => Returns a reference to current window
+window[0], window[1], etc. => Returns reference to window object in frames. See Window.frames for more details.
+
+
+
+
+------------------------------------
+------------------
+#### WINDOW EVENT HANDLERS :
+
+
+window.onabort
+Called when the loading of a resource has been aborted, such as by a user canceling the load while it is still in progress
+
+
+
+window.onbeforeunload
+An event handler property for before-unload events on the window.
+
+
+window.onblur
+Called after the window loses focus, such as due to a popup.
+
+
+window.onchange
+An event handler property for change events on the window.
+
+
+window.onclick
+Called after the ANY mouse button is pressed & released
+
+
+window.ondblclick
+Called when a double click is made with ANY mouse button.
+
+
+window.onclose
+Called after the window is closed
+
+
+window.oncontextmenu
+Called when the RIGHT mouse button is pressed
+
+
+window.onerror
+Called when a resource fails to load OR when an error occurs at runtime.
+
+
+window.onfocus
+Called after the window receives or regains focus.
+
+
+window.onhashchange
+An event handler property for hashchange events on the window; called when the part of the URL after the hash mark ("#") changes.
+
+
+window.oninput
+Called when the value of an <input> element changes
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#### WINDOW METHODS :
+
+Window.alert()
+Displays an alert dialog.
+
+
+window.history.back()
+Moves back one-website in the window history.
+
+
+window.history.forward()
+Moves the window one document forward in the history.
+
+
+
+Window.blur()
+Sets focus away from the window.
+
+
+Window.close()
+Closes the current window.
+
+
+Window.confirm("Do you want to proceed with this website?")
+Displays a dialog with a message that the user needs to respond to.
+return values = "true", "false"
+Example:
+var a = window.confirm("do you want to proceed?");
+if (a) {alert("OK TRUE");} else {alert("CANCEL FALSE");}
+
+
+Window.find()
+Searches for a given string in a window.
+
+
+Window.focus()
+Sets focus on the current window.
+
+
+Window.getComputedStyle()
+Gets computed style for the specified element. Computed style indicates the computed values of all CSS properties of the element.
+
+
+Window.getSelection()
+Returns the selection object (selected text of document) representing the selected item(s).
+
+
+
+Window.setImmediate()
+Executes a function after the browser has finished other heavy tasks
+
+
+Window.stop()
+This method stops window loading.
+
+
+window.btoa()
+Creates a base-64 encoded ASCII string from a string of binary data.
+
+
+
+window.atob()
+Decodes a string of data which has been encoded using base-64 encoding
+
+
+
+
+==================
+Window.postMessage()
+Provides a secure means for one window to send a string of data to another window, which need not be within the same domain as the first.
+
+
+-------------
+window-1, (https://www.google.com) code:
+
+
+function receiveMessage(event) {
+
+// Do we trust the sender of this message?
+
+    if (event.origin !== "https://www.bing.com")
+    return;
+  
+  // event.source is popup window (window-2)
+  // event.data is "Japan"
+
+console.log(event.data);
+
+}
+
+window.addEventListener("message", receiveMessage, false);
+
+var popup = window.open("https://www.bing.com");
+popup.postMessage("Russia", "https://www.bing.com");
+
+
+---------------
+window-2 (popup window), (https://www.google.com) code:
+
+
+function receiveMessage(event)
+{
+
+// Do we trust the sender of this message?
+
+  if (event.origin !== "https://www.google.com")
+  return;
+
+  // event.source is window.opener (window-1)
+  // event.data is "Russia"
+  // Assuming you've verified the origin of the received message (which
+  // you must do in any case), a convenient idiom for replying to a
+  // message is to call postMessage on event.source and provide
+  // event.origin as the targetOrigin.
+
+  event.source.postMessage("Japan", event.origin);
+
+console.log(event.data);
+
+}
+
+window.addEventListener("message", receiveMessage, false);
+
+//OR you can use this:
+
+window.opener.postMessage("Japan", "https://www.google.com");
