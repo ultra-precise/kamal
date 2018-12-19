@@ -1,0 +1,157 @@
+document :
+========================
+Properties :
+
+
+documentElement => Returns the Element that is a direct child of the document. For HTML documents, this is normally the HTMLHtmlElement object representing the document's <html> element.
+
+
+defaultView => reference to window object
+head
+body
+
+
+URL
+documentURI
+location => location.properties : href, origin, host, hostname, pathname, protocol, port, reload()
+domain
+referrer => URI of page that linked to current page (it can be used for SEO purpose)
+title => gets or sets title of document
+doctype
+characterSet
+contentType
+lastModified => date on which document was last modified
+readyState => loading status of document
+
+
+cookie => gets list of cookies or sets(appends) a new single cookie (appends one cookie at a time), 
+Syntax: document.cookie = "name=oeschger";
+
+
+images
+anchors
+links => list of all hyperlinks in document
+styleSheets => list of all stylesheets in document
+styleSheetSets => list of all stylesheet sets in document
+scripts => list of all <script> elements in document
+forms => list of all <form> elements in document
+embeds OR plugins => list of all <embed> elements in document
+
+
+fonts
+scrollingElement => a reference to Element that scrolls the document
+implementation => Returns the DOM implementation associated with current document.
+policy
+timeline => experimental technology
+visibilityState
+
+
+lastStyleSheetSet => name of stylesheet set that was last enabled
+preferredStyleSheetSet => the preferred stylesheet set as specified by page author
+selectedStyleSheetSet => stylesheet set currently in use
+
+
+designMode => edit document
+dir => direction of text in document (rtl/ltr) (right to left/left to right)
+
+
+activeElement => element that has focus
+fullscreenElement => element that's currently in full screen mode
+
+----------
+ParentNode.properties (i.e. document.body = ParentNode) :
+
+
+ParentNode.childElementCount => count of children elements
+ParentNode.children => live HTMLCollection (array-like-object) of all children Elements objects, omitting all non-element nodes
+ParentNode.firstElementChild => first child Element node
+ParentNode.lastElementChild => last child Element node
+
+=============================
+Event Handlers :
+
+--------------
+document.onxxxxxxxx
+
+An EventHandler representing the code to be called when the "xxxxxxxx" event is raised.
+
+------------
+onfocus
+onblur
+onerror
+onchange => Form elements
+onclick
+onclose => on connection close
+oncontextmenu = on right button of mouse is clicked
+ondblclick
+ondrag
+
+
+---------------
+onreset (HTML-Form)
+onsubmit (HTML-Form)
+oninput (HTML-Form-Element)
+oninvalid (HTML-Form-Element)
+onkeydown
+onkeypress
+onkeyup
+onload
+onloadend (when progress has stopped on the loading of a resource.)
+onloadstart (when progress has begun on the loading of a resource.)
+onmousedown
+onmouseenter
+onmouseleave
+onmousemove
+onmouseout
+onmouseover
+onmouseup
+onwheel
+onprogress
+onresize (window)
+onscroll
+
+onselect (text-selected inside input and textarea elements [HTML-Form])
+onselectstart (text-selection started on document )
+onselectionchange (text-selection changed on document)
+window.getSelection().toString()
+document.getSelection().toString()
+
+onstalled (user-agent failed to fetch media data)
+
+
+-------------------
+Methods -
+
+adoptNode() => cut-paste element from external document, used with appendChild() or insertBefore()
+importNode() => clone/copy-paste element from external document, used with appendChild() or insertBefore()
+createAttribute()
+setAttributeNode() => append attribute to element created by createAttribute() method
+createElement()
+createComment()
+createEvent()
+createTextNode()
+enableStyleSheetsForSet()
+getAnimations() => array of all Animation objects
+getElementsByClassName()
+getElementsByTagName()
+getElementById()
+querySelector()
+querySelectorAll()
+execCommand()
+hasFocus()
+hasStorageAccess()
+requestStorageAccess()
+
+open()
+write()
+close()
+
+Example =>
+document.open();
+document.write("<h1>Out with the old - in with the new!</h1>");
+document.close();
+
+===========================================================================================================================================
+
+
+
