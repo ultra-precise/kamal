@@ -1,8 +1,0 @@
-There is one caveat when using arrow functions to create plain objects. Always wrap the object in parentheses:
-
-// create a new empty object for each puppy to play with
-var chewToys = puppies.map(puppy => {});   // BUG!
-var chewToys = puppies.map(puppy => ({})); // ok
-Unfortunately, an empty object {} and an empty block {} look exactly the same. The rule in ES6 is that { immediately following an arrow is always treated as the start of a block, never the start of an object. The code puppy => {} is therefore silently interpreted as an arrow function that does nothing and returns undefined.
-
-Even more confusing, an object literal like {key: value} looks exactly like a block containing a labeled statement—at least, that’s how it looks to your JavaScript engine. Fortunately { is the only ambiguous character, so wrapping object literals in parentheses is the only trick you need to remember.
