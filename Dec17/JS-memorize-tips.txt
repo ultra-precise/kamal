@@ -74,8 +74,12 @@ Solution-3 :
 use forEach() 
 
 ==============================
+Arrow function :
 
+Always use arrow functions, except the following condition :
+use normal-function for defining methods of any Object/Constructor.
 
+==============================
 
 
 
