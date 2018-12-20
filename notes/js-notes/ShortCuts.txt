@@ -1,5 +1,0 @@
-F12
-or
-Ctrl + Shift + I
-
-= Developer Tools
