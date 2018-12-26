@@ -1,0 +1,30 @@
+hide text after anim
+https://codepen.io/cssanimation/pen/qazXEV
+
+
+tubelight text
+https://codepen.io/claudz1/pen/YYEMXa
+
+
+robotic
+https://codepen.io/soulwire/pen/mErPAK
+
+hanging then falling text
+https://codepen.io/blehr/pen/cpaxl
+
+
+peaceful text
+https://codepen.io/tsurendra8/pen/PzQbdK
+https://codepen.io/egrucza/pen/LkdPZP
+
+
+text shattering
+https://codepen.io/hendrysadrak/pen/BNvrMm
+
+
+unbreakable
+https://codepen.io/groovc/pen/EjaMYZ
+
+
+text-7 styles
+https://codepen.io/kh-mamun/pen/NdwZdW
