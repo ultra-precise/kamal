@@ -1,0 +1,13 @@
+/*
+Animation: Move-in-Move-out from screen with 5 seconds stoppage time
+*/
+
+
+div {
+animation: 5s cubic-bezier(0.000, 1.650, 0.035, 0.845) 2.5s infinite alternate both move_eye;
+}
+
+@-webkit-keyframes move_eye { 
+0%, 40% { transform: translateX(-1000%); } 
+60%, 100% { transform: translateX(0); }  
+}
