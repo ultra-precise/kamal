@@ -1,0 +1,120 @@
+element :
+
+--------------
+--------------------------
+Properties :
+
+
+accessKey => shortcut keys on keyboard
+accessKeyLabel => shortcut keys on keyboard
+contentEditable => (true/false) element's content can be Live-edited
+isContentEditable
+dataset
+dir => (ltr,rtl) directionality of language
+innerText
+lang
+offsetHeight
+offsetWidth
+properties
+spellcheck
+style
+tabIndex
+title
+translate
+
+
+attributes
+classList
+tagName
+id
+className
+clientHeight =>  inner height of the element
+clientLeft => width of the left border of the element
+clientTop => width of the top border of the element
+clientWidth => inner width of the element
+
+innerHTML
+outerHTML
+localName
+
+
+nextElementSibling
+previousElementSibling
+
+
+scrollHeight
+scrollLeft
+scrollTop
+scrollWidth
+
+------------
+---------------------------
+Event handlers :
+
+
+onfullscreenchange
+onfullscreenerror
+
+
+-------------
+-----------------------------
+Methods:
+
+focus()
+blur()
+click()
+forceSpellCheck()
+
+
+animate()
+closest()
+computedStyleMap()
+dispatchEvent()
+
+getAnimations()
+getAttribute()
+setAttribute()
+getAttributeNames() => array of attribute names
+getBoundingClientRect() => size of an element and its position relative to viewport
+
+
+requestFullscreen() => Asynchronously asks browser to make element full-screen
+
+
+
+getElementsByClassName() =>  live HTMLCollection
+getElementsByTagName() => live HTMLCollection
+hasAttribute()
+hasAttributes()
+
+
+insertAdjacentElement()
+insertAdjacentHTML()
+insertAdjacentText()
+
+
+addEventListener()
+removeEventListener()
+matches()
+querySelector()
+querySelectorAll() => NodeList
+remove() => Removes element from children list of its parent
+removeAttribute()
+
+
+scroll() => Scrolls to a particular set of coordinates inside a given element
+scrollBy() => Scrolls an element by the given amount
+scrollTo() => Scrolls to a particular set of coordinates inside a given element
+scrollIntoView() => Scrolls the page until the element gets into view
+
+setPointerCapture()
+
+toggleAttribute() => Toggles a boolean attribute, removing it if it is present and adding it if it is not present, 
+on the specified element
+
+
+----------------------------------
+==================================
+
+
+
