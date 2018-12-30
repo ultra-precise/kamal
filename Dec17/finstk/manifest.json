@@ -1,0 +1,20 @@
+{
+    "name": "Stock News",
+    "description": "Build an Extension!",
+    "version": "1.0",
+    "manifest_version": 2,
+
+
+"permissions": [
+    "https://finviz.com/*"
+  ],
+
+
+"content_scripts": [
+   {
+     "matches": ["https://www.google.com/search?q=plugin+enabled"],
+     "run_at": "document_idle",
+     "js": ["fin.js"]
+   }
+ ]
+}
