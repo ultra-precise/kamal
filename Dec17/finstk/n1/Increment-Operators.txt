@@ -1,0 +1,13 @@
+Assignment operators :
+(x += y, x = x + y)
+
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators
+
+--------------
+Arithmetic operators :
+(x++, ++x)
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators
+
+--------------
