@@ -1,0 +1,17 @@
+1*10-9
+https://finviz.com/screener.ashx?v=321
+
+2*10-9
+https://finviz.com/screener.ashx?v=321&r=11
+
+3*10-9
+https://finviz.com/screener.ashx?v=321&r=21
+
+4
+https://finviz.com/screener.ashx?v=321&r=31
+
+700*10-9
+https://finviz.com/screener.ashx?v=321&r=6991
+
+600*10-9
+https://finviz.com/screener.ashx?v=321&r=5991
