@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><title></title></head>
+
+<body>
+<script>
+var buttonToggle = document.createElement("button");
+document.body.appendChild(buttonToggle);
+buttonToggle.textContent = "ShowHide-ToggleButton";
+
+var shdiv = document.createElement("div");
+document.body.appendChild(shdiv);
+shdiv.innerHTML = `Hide me !`;
+
+var shdivnext = document.createElement("div");
+document.body.appendChild(shdivnext);
+shdivnext.innerHTML = `I am visible ..`;
+
+buttonToggle.addEventListener("click", fhide);
+
+function fshow(e){
+e.target.nextSibling.style.display = "block";
+e.target.addEventListener("click", fhide);
+e.target.removeEventListener("click", fshow);
+}
+
+function fhide(e){
+e.target.nextSibling.style.display = "none";
+e.target.addEventListener("click", fshow);
+e.target.removeEventListener("click", fhide);
+}
+
+
+
+</script>
+
+</body>
+</html>
