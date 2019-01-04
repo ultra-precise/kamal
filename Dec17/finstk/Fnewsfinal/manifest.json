@@ -1,0 +1,31 @@
+{
+    "name": "Finance News",
+    "description": "Show Latest Finance News",
+    "version": "1.0",
+    "manifest_version": 2,
+
+
+"permissions": [
+    "*://finviz.com/*", 
+	"*://www.finviz.com/*",
+ "activeTab"
+  ],
+
+
+"content_scripts": [
+   {
+     "matches": ["https://finviz.com/?q=plugin+enabled*"],
+     "run_at": "document_idle",
+     "js": ["f.js"]
+   }
+
+      
+ ],
+
+"browser_action": {
+      "default_title": "FN",
+         "default_popup": "popup.html"
+  }
+
+
+}
