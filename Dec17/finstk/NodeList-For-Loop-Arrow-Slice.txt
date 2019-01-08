@@ -1,0 +1,83 @@
+Loop through Nodelist/HTMLElementsList:
+
+----------------
+
+Function appendChildren should add a new child div to each existing div. New divs should be decorated by calling decorateDiv.
+
+For example, after appendChildren is executed, the following divs:
+
+
+<div id="a">
+  <div id="b">
+  </div>
+</div>
+
+----------------
+should take the following form (assuming decorateDiv does nothing):
+
+
+<div id="a">
+  <div id="b">
+    <div></div>
+  </div>
+  <div></div>
+</div>
+
+
+---------------
+The code below should do the job, but for some reason it goes into an infinite loop. Fix the bugs: 
+
+
+function appendChildren(decorateDivFunction) {
+  var allDivs = document.getElementsByTagName("div");
+
+  for (var i = 0; i < allDivs.length; i++) {
+    var newDiv = document.createElement("div");
+    decorateDivFunction(newDiv);
+    allDivs[i].appendChild(newDiv);
+  }
+}
+
+// Example case. 
+document.body.innerHTML = `
+<div id="a">
+  <div id="b">
+  </div>
+</div>`;
+
+//appendChildren(function(div) {});
+console.log(document.body.innerHTML);
+
+----------------------
+---------------------------------------------------------------
+Solution:
+
+The allDivs list is a "Live NodeList". 
+That means that every time you create a new <div> and add it to the page, 
+the list will be instantly updated to include that new element. 
+Thus, the loop will continue forever.
+
+
+----------------
+Array.from()
+
+You can use Array.from() in new environments to make a plain Array copy:
+
+var allDivs = Array.from(document.getElementsByTagName("div"));
+
+
+-----------------
+Array.prototype.slice.call()
+
+Or you can use this, which should work anywhere:
+
+var allDivs = Array.prototype.slice.call(document.getElementsByTagName("div"));
+
+The plain array will of course not be instantly updated to include each new <div> you create
+
+
+
+=======================================The End========================
+
+
+
