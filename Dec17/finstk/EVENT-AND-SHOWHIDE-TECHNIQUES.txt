@@ -1,0 +1,95 @@
+EVENT TECHNIQUES :
+**********************
+
+...........TECH-1..................................
+
+
+Inline onclick event handler function :
+
+Always use "event" or "this" as an argument for inline-onclick-event-handler-function.
+
+Example:
+
+
+<div onclick="myfunction(event)"></div>
+
+
+function myfunction(x){
+alert(x.target.tagName);
+alert(x.target.textContent);
+}
+
+
+...........TECH-2....................................
+
+
+<div onclick="myfunction(this)"></div>
+
+
+function myfunction(x){
+alert(x.tagName);
+alert(x.textContent);
+}
+
+
+............TECH-3.....................................
+
+
+<div id="mydiv"></div>
+
+document.querySelector('#mydiv').addEventListener('click', myfunction);
+
+
+function myfunction(x){
+alert(x.target.tagName);
+alert(x.target.textContent);
+}
+
+
+=========================================================
+TOGGLE-SHOW-HIDE-TECHNIQUES :
+******************************
+
+
+............TECH-5......................................
+
+
+<div onclick="event.target.nextElementSibling.style.display = event.target.nextElementSibling.style.display == 'none'  ? 'block' : 'none'"></div>
+<p>Show me, Hide me.</p>
+
+
+............TECH-6......................................
+
+
+<div id="mydiv"></div>
+<p>Show me, Hide me.</p>
+
+document.querySelector('#mydiv').addEventListener('click', myfunction);
+
+function myfunction(x){
+x.target.nextElementSibling.style.display = x.target.nextElementSibling.style.display == 'none'  ? 'block' : 'none';
+}
+
+
+............TECH-7........................................
+
+<!DOCTYPE html>
+
+<details>
+   <summary style="cursor:pointer; border: inset 2px; border-radius:3px; outline:none; display:inline;">Copyright 1999-2014.</summary>
+   <p> - by Refsnes Data. All Rights Reserved. All content and graphics on this web site are the property of the company Refsnes Data.</p>
+</details>
+
+<div>Note: The summary element is not supported in Edge/Internet Explorer.</div>
+
+
+=========================THE END=================================
+
+
+
+
+
+
+
+
+
