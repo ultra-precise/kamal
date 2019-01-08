@@ -1,0 +1,26 @@
+Find Unique names of dogs and cats from 2 tables (dogs,cats):
+---------
+
+Information about pets is kept in two separate tables:
+
+TABLE dogs
+  id INTEGER NOT NULL PRIMARY KEY,
+  dogname VARCHAR(50) NOT NULL
+
+TABLE cats
+  id INTEGER NOT NULL PRIMARY KEY,
+  catname VARCHAR(50) NOT NULL
+
+Write a query that select all distinct pet names.
+
+See the example case for more details.
+
+---------
+Solution:
+
+SQL -
+
+select distinct dogname as animalname from dogs
+UNION
+select distinct catname from cats
+
