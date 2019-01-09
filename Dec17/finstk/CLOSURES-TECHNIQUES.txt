@@ -1,0 +1,18 @@
+Closures :
+********************
+
+----------Solution-1-------------
+
+Use let i=0;
+
+for (let i=0; i<array.length; i++){}
+
+
+----------Solution-2-------------
+
+Use forEach
+
+Array.prototype.forEach.call(arrayname, x => {alert(arrayname.indexOf(x));});
+
+
+==============================================
