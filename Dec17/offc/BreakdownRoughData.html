@@ -1,0 +1,22 @@
+<body>
+<script>
+var str = "Specialty Specialty Group Specialty Type Count Clinical Nurse - Acute Care Nurse Nurse 84 Clinical Nurse - Home Health Nurse Nurse 2 Clinical Nurse - Long-Term Care Nurse Nurse 2 Clinical Nurse - Medical-Surgical Nurse Nurse 86 Nurse Practitioner - Acute Care Nurse Nurse 2,552 Nursing Facility/Intermediate Care Facility Nurse Nurse 6 Physician Assistant - Surgical Nurse Physician Assistant 3,524 Registered Nurse - Medical-Surgical Nurse Nurse 214 Registered Nurse - Wound Care Nurse Nurse 40 Sports Medicine Orthopaedic Physician 2,293 Plastic & Reconstructive Surgery Plastic Surgery Physician 672 Plastic Surgery Plastic Surgery Physician 6,679 Orthopaedic Surgery - Foot & Ankle Surgery Physician 293 Orthopaedic Surgery - Reconstructive Surgery Physician 107 Orthopaedic Surgery - Spine Surgery Physician 1,200 Orthopaedic Surgery -Trauma Surgery Physician 164 Trauma Surgery (Traumatologist) Surgery Physician 511 Adult Reconstructive Orthopaedic Surgery Surgery Physician 271 Cardiovascular Surgery Surgery Physician 3,014 General Surgery Surgery Physician 15,414 Transplant Surgery Surgery Physician 464 Vascular Surgery Surgery Physician 3,125";
+
+var pattern = /(\d+[,]*\d*)/;
+
+var a = str.split(pattern);
+
+
+for (var i = 0; i<a.length; i+=2){
+var b = document.createElement("li");
+b.textContent = `${a[i]} # ${a[i+1]}`;
+document.body.appendChild(b);
+b.style.listStyleType = 'none';
+}
+
+
+
+
+
+</script>
+</body>
