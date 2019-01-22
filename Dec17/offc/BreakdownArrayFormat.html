@@ -1,0 +1,41 @@
+<body>
+<script>
+var str = `Adult Reconstructive Orthopaedic Surgery
+Cardiovascular Surgery
+Clinical Nurse - Acute Care
+Clinical Nurse - Home Health
+Clinical Nurse - Long-Term Care
+Clinical Nurse - Medical-Surgical
+General Surgery
+Nurse Practitioner - Acute Care
+Nursing Facility/Intermediate Care Facility
+Orthopaedic Surgery - Foot & Ankle
+Orthopaedic Surgery - Reconstructive
+Orthopaedic Surgery - Spine
+Orthopaedic Surgery -Trauma
+Physician Assistant - Surgical
+Plastic & Reconstructive Surgery
+Plastic Surgery
+Registered Nurse - Medical-Surgical
+Registered Nurse - Wound Care
+Sports Medicine
+Transplant Surgery
+Trauma Surgery (Traumatologist)
+Vascular Surgery`;
+
+var pattern = /\n+/g;
+
+var a = str.split(pattern);	
+
+var p = document.createElement(p);
+p.textContent = a;
+document.body.appendChild(p);
+
+console.log(a);
+
+
+
+
+
+</script>
+</body>
