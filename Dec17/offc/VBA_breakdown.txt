@@ -1,0 +1,66 @@
+Option Compare Database
+
+Private Sub breakdown()
+
+Dim db As Object
+Set db = CurrentDb
+'db.Execute ";", dbFailOnError
+
+Dim A1 As Variant
+Dim N1 As Variant
+
+Dim V1 As Variant
+Dim V2 As Variant
+
+
+
+
+V1 = Array("Adult Reconstructive Orthopaedic Surgery", "Cardiovascular Surgery", _
+"Clinical Nurse - Acute Care", "Clinical Nurse - Home Health", "Clinical Nurse - Long-Term Care", _
+"Clinical Nurse - Medical-Surgical", "General Surgery", "Nurse Practitioner - Acute Care", _
+"Nursing Facility/Intermediate Care Facility", "Orthopaedic Surgery - Foot & Ankle", _
+"Orthopaedic Surgery - Reconstructive", "Orthopaedic Surgery - Spine", _
+"Orthopaedic Surgery -Trauma", "Physician Assistant - Surgical", _
+"Plastic & Reconstructive Surgery", "Plastic Surgery", "Registered Nurse - Medical-Surgical", _
+"Registered Nurse - Wound Care", "Sports Medicine", "Transplant Surgery", "Trauma Surgery (Traumatologist)", _
+"Vascular Surgery")
+
+N1 = Array(271, 3014, 84, 2, 2, 86, 15414, _
+2552, 6, 293, 107, 1200, 164, 3524, 672, 6679, _
+214, 40, 2293, 464, 511, 3125)
+
+
+For v = 0 To 21
+
+
+db.Execute "update (select TOP " & N1(v) & " * from final " & _
+"where " & _
+"final.[Title] = """ & V1(v) & """ " & _
+") as Y " & _
+"set " & _
+"Y.qq = '1';"
+
+
+Next v
+
+
+
+
+
+MsgBox "Done!"
+
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
