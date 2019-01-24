@@ -1,0 +1,41 @@
+<label> element
+
+The <label> element is the only way to provide explanatory information about a form field that is always appropriate (aside from any layout concerns you have). It's never a bad idea to use a <label> to explain what should be entered into an <input> or <textarea>.
+
+
+--------
+You can also just have plain text adjacent to the <input> element, like this:
+
+
+<p>Enter your name: <input id="name" type="text" size="30"></p>
+
+
+Please don't do this. This doesn't create a relationship between the prompt and the <input> element, which is important for reasons we'll get into in the next section.
+
+
+-----------
+Why you should use labels :
+
+In addition to the information provided above, there are a number of other reasons why <label> is the best way to explain <input>s:
+
+The semantic pairing of <input> and <label> elements is useful for assistive technologies such as screen readers. By pairing them using the <label>'s for attribute, you bond the label to the input in a way that lets screen readers describe inputs to users more precisely.
+
+
+By pairing a <label> with an <input>, clicking on either one will focus the <input>. If you use plaintext to "label" your input, this won't happen. Having the prompt part of the activation area for the input is helpful for people with motor control conditions.
+
+
+As web developers, it's important that we never assume that people will know all the things that we know. The diversity of people using the web—and by extension your web site—practically guarantees that some of your site's visitors will have some variation in thought processes and/or circumstances that leads them to interpret your forms very differently from you without clear and properly-presented labels.
+
+---------
+Accessibility concerns :
+
+Labels:
+
+When including inputs, it is recommended to add labels along side. This is so those who use assistive technologies can tell what the input is for. For more information about labels in general see Labels and placeholders .
+
+The following is an example of how to associate the <label> with an <input> element in the above style. You need to give the <input> an id attribute. The <label> then needs a for attribute whose value is the same as the input's id.
+
+<label for="peas">Do you like peas?</label>
+<input type="checkbox" name="peas" id="peas">
+
+========================
