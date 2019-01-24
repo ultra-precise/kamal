@@ -1,0 +1,5 @@
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Applying_color
