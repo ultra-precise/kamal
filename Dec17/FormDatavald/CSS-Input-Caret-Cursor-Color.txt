@@ -1,0 +1,16 @@
+One unusual one that is specific to text entry-related elements is the CSS "caret-color" property, 
+which lets you set the color of text-input-caret(Cursor) :
+
+[HTML]
+
+<label for="textInput">Note the red caret:</label>
+<input id="textInput" class="custom" size="32">
+
+
+
+[CSS]
+
+input.custom {
+  caret-color: red;
+  font: 16px "Helvetica", "Arial", "sans-serif"
+}
