@@ -1,0 +1,22 @@
+Letting the user pick a color :
+
+<input type="color">
+--------------------------------------------------------------------
+  <label for="colorPicker">Border color:</label>
+  <input type="color" value="#8888ff" id="colorPicker">
+
+There are many situations in which your web site may need to let the user select a color. 
+Perhaps you have a customizable user interface, or you're implementing a drawing app. 
+Maybe you have editable text and need to let the user choose the text color.
+
+HTML now provides support for browsers to provide color-picker for your use through the <input> element, 
+by using "color" as the value of type attribute of <input> element.
+
+The <input> element represents a color only in hexadecimal string notation.
+
+Example: Picking a color
+
+Let's look at a simple example, in which the user can choose a color. 
+As the user adjusts the color, the border around the example changes to reflect the new color. 
+After finishing up and picking the final color, the color picker's value is displayed.
+
