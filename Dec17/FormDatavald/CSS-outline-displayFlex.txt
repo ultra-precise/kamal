@@ -1,0 +1,72 @@
+[CSS]
+
+Outline:
+
+An outline is defined for the box. Unlike the more commonly used border, outline doesn't affect layout at all; it draws over the top of whatever may happen to be outside the element's box instead of making room as border does. This outline is a solid, dark red line that's two pixels thick.
+
+
+outline: 8px ridge rgba(170, 50, 220, .6);
+
+-------------
+[CSS]
+
+display: flex;
+
+
+CSS Flexbox Layout Module
+Before the Flexbox Layout module, there were four layout modes:
+
+
+Block, for sections in a webpage
+Inline, for text
+Table, for two-dimensional table data
+Positioned, for explicit position of an element
+
+
+The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure without using float or positioning.
+
+
+To start using the Flexbox model, you need to first define a flex container.
+
+The element above represents a flex container (the blue area) with three flex items.
+
+Example
+A flex container with three flex items:
+
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+
+Parent Element (Container)
+The flex container becomes flexible by setting the display property to flex:
+
+Example
+.flex-container {
+  display: flex;
+}
+
+After that you can use any flex properties to float or center the content:
+
+Example:
+
+The flex-wrap property specifies whether the flex items should wrap or not.
+
+The examples below have 12 flex items, to better demonstrate the flex-wrap property.
+
+The wrap value specifies that the flex items will wrap if necessary:
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+The row-reverse value stacks the flex items horizontally (but from right to left):
+
+.flex-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
