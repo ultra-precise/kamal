@@ -1,0 +1,11 @@
+Using mozactionhint on Firefox mobile :
+
+
+You can use the "mozactionhint" attribute to specify the text for the label of the "Enter key" on the virtual keyboard of mobile when your form is rendered on Firefox mobile. For example, to have a "Next" label, you can do this:
+
+<input type="text" mozactionhint="next">
+
+
+
+
+Note the "Next" key in the lower-right corner of the keyboard.
