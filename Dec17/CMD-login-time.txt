@@ -1,0 +1,5 @@
+Find out what was your login time on current Windows system -
+
+CMD command:
+
+C:\> quser
