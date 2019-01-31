@@ -1,0 +1,75 @@
+Java Runtime Environment (JRE), is needed to run Java applications and applets.
+Java Development Kit (JDK), is needed to develop those Java applications and applets.
+
+*********************************
+Java platform -
+
+
+
+Java source file (SomeApplication.java) -----------javac SomeApplication.java---------> 
+
+Java Compiler(javac) ------------------------------"compilation"----------------------> 
+
+Java byte-code (SomeApplication.class) ------------java SomeApplication.class--------->
+
+Java Virtual Machine (JVM) Interpreter ------------"interpretation"------------------->
+
+native code (Local Machine)
+
+
+
+
+*****************************************
+Just-in-Time Compilation -
+
+
+
+Java source file (SomeApplication.java) ---------------------------> 
+Java Compiler(javac) ------------------------"compilation"---------> 
+Java byte-code (SomeApplication.class) ---------------------------->
+Just-in-Time (JIT) Compiler ------first use, compilation------------>
+native code (Local Machine)
+
+
+Java byte-code (SomeApplication.class) ---------------------------->
+Bypass Compilation ------after first use, Bypass compilation------------>
+native code (Local Machine)
+
+
+
+*****************************************
+Java installation check -
+
+CMD > 
+java -version
+
+
+*****************************************
+compile Java source file (SomeApplication.java) to Java byte-code -
+
+CMD >
+javac SomeApplication.java
+
+
+*****************************************
+execute Java byte-code (SomeApplication.class) -
+
+CMD >
+java SomeApplication.class
+
+
+*****************************************
+execute Java byte-code (SomeApplication.jar) -
+
+CMD >
+java -jar SomeApplication.jar
+
+
+******************************************
+
+
+
+
+
+
+
