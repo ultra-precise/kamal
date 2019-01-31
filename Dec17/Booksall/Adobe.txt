@@ -1,0 +1,22 @@
+adobe marketing cloud
+C
+java
+DATA STRUCTURE, 
+BASIC ALGORITHMS, 
+OPERATING SYSTEM and 
+DATA BASE.
+
+--
+How do you design systems to scale well ?
+
+--
+Why do you want to work in this role?
+--
+SQL, performance tuning ,html, js
+--
+Tell me about a time when you needed information / feedback from a client and they were not responsive, or didn't adhere to your timeline?  
+Answer:
+I said that I would try to talk to them directly. If that didn't work, I would need to escalate this to the project manager or the project sponsor .. depending on who was available and what the situation was. As well, I would be highlighting this in my weekly status report and label it as a potential issue (red flag) that might impact my ability to deliver the final product on time.
+
+--
+JAVA Regexp
