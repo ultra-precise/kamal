@@ -1,0 +1,94 @@
+Techniques :
+
+*****************************************************************************
+Unique Array (Remove Duplicates) :
+
+extract unique elements from array (remove duplicate elements from array) :
+
+
+<<<<<<<Code<<<<<<<<<<
+
+var ar = [1, 5, 4, 1, 2, 4, 6];
+
+var y = [];
+
+ar.forEach(x=>{
+
+if(!y.includes(x)){y.push(x);}
+
+});
+
+console.log(y);
+
+>>>>>>>>>>>>>>>>>>>>>
+
+
+****************************************************************************
+Calculate Counts of Duplicate Elements of array :
+
+
+<<<<<<<Code<<<<<<<<<<
+
+var i,w;
+var j = [];
+
+y.forEach(e => { 
+      
+i = 0;
+w = ar.indexOf(e);
+
+while (w != -1) {
+i++;
+w = ar.indexOf(e, w+1);
+}
+     
+if (i != 0) {j.push([e,i]);}
+
+});
+
+
+j.forEach(q=>{
+
+   console.log(q[0]+"("+q[1]+")");
+
+});
+
+
+>>>>>>>>>>>>>>>>>>>>>
+
+
+*****************************************************************************
+quotient, remainder(modulus) :
+
+
+
+dividend / divisor = quotient
+
+dividend % divisor = remainder(modulus)
+
+Note: 
+(1) remainder always takes the sign(+-) of the dividend.
+(2) quotient can be floating-point number (such as 45.3428)
+
+
+<<<<<<<Code<<<<<<<<<<
+
+var myinteger = parseInt(h / 2, 10);
+
+>>>>>>>>>>>>>>>>>>>>>
+
+Example:
+7/2 = 3.5
+quotient = 3.5
+myinteger = parseInt(7 / 2, 10) = parseInt(3.5) = 3
+remainder = 7 % 2 = 1
+
+*****************************************************************************
+
+
+
+
+
+
+
+
