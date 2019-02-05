@@ -1,0 +1,50 @@
+Sorting -
+
+SELECT *
+FROM   person
+ORDER BY weight;
+
+
+-- all persons in descending order of their weight:
+
+SELECT *
+FROM   person
+ORDER BY weight desc;
+
+
+
+In the above result there are two rows with identical values in the column weight. As this situation leads to random results, we have the possibility to specify more columns. These following columns are processed only for those rows with identical values in all preceding columns.
+
+-- additional column place_of_birth ascending: Birmingham before San Francisco.
+
+SELECT *
+FROM   person
+ORDER BY weight desc, place_of_birth;
+
+
+
+In the ORDER BY clause we can specify any column of the processed table. We are not limited to the ones which are returned by the projection.
+
+-- same ordering as above:
+
+SELECT firstname, lastname
+FROM   person
+ORDER BY weight desc, place_of_birth;
+
+--------------------
+Column name with Space :
+
+
+SELECT hobbyname as Hobby, remark as Short_Description_of_Hobby
+FROM   hobby;
+
+-- columnname without underscore: Use quotes
+
+SELECT hobbyname as Hobby, remark as "Short Description of Hobby"
+FROM   hobby;
+
+
+
+
+
+
