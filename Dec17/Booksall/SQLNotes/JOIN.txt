@@ -1,0 +1,14 @@
+"Database Normalization" and 'JOIN' operation :
+
+
+Data should be stored in such a way that no redundant information exists in the database. 
+For example, if our database includes groups of people who, in each case, all pursue the same hobby, 
+then we would rather avoid repeatedly storing the same static details about a given hobby; 
+namely in every record about one of the hobby's enthusiasts. Likewise, we would rather avoid repeatedly 
+storing the same detailed information about an individual hobbyist; namely in every record about one of 
+that person's hobbies. 
+
+Instead we create independent person and hobby tables and point from one to the other. 
+This technique for grouping data in separate, redundancy-free tables is called "database normalization". 
+Such separation also tends to simplify the logic and enhance the flexibility of assembling precisely 
+the items needed for a given purpose. This assembly is accomplished by means of the 'JOIN' operation.
