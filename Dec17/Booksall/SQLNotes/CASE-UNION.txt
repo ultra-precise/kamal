@@ -1,0 +1,47 @@
+Trick-1
+CASE (Case Expression) -
+
+Question: 
+
+Sort contact_type in the order: 
+all fixed lines, all mobile phones, all emails, all icq's. 
+Within each group sort over the contact_value.
+
+///////
+Answer:
+
+
+SELECT contact_type,contact_value, 
+       CASE contact_type
+         WHEN 'fixed line' THEN 0
+         WHEN 'mobile'     THEN 1
+         WHEN 'email'      THEN 2
+         WHEN 'icq'        THEN 3
+         ELSE                   4
+       END As Case
+       FROM   contact
+ORDER  BY       Case, contact_value;
+
+
+--------------
+Trick-2
+UNION (Set Operations) -
+
+Question:
+
+Often one would like to achieve that the rows from the first SELECT are ordered independent 
+from those of the second SELECT. We can do this by adding a virtuel column(dummy) to the result of both SELECTs.
+
+///////
+Answer:
+
+
+SELECT '1' as dummy, firstname
+FROM   person
+  UNION
+SELECT '2', lastname
+FROM   person
+ORDER BY dummy, firstname;
+
+
+============================================
