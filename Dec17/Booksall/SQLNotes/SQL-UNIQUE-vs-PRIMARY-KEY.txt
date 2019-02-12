@@ -1,0 +1,34 @@
+UNIQUE vs PRIMARY KEY -
+
+
+The UNIQUE constraint has a similar meaning as the PRIMARY KEY phrase. But there are two slight differences.
+
+First, the values of different rows of a UNIQUE column are not allowed to be equal, which is the same as with PK. 
+But they are allowed to hold the NULL value, which is different from PK. The existence of NULL values has an implication. 
+
+As the term null = null never evaluates to true (it evaluates to "unknown") there may exist multiple rows 
+with the NULL value in a column which is defined to be UNIQUE.
+
+Second, only one PK definition per table is allowed. In contrast, there may be many UNIQUE constraints (on different columns).
+
+
+Summary -
+
+1. "NULL" value -
+
+in PRIMARY KEY column "NULL" value is not allowed
+in UNIQUE column "NULL" value is allowed in multiple rows
+
+because in UNIQUE column:
+
+(null = null) does not equal "true"
+it equals "unknown"
+
+
+2. multiple columns -
+
+one table can have "only one" PRIMARY KEY column.
+one table can have multiple UNIQUE columns.
+
+
+-----------------------------------------------------------
