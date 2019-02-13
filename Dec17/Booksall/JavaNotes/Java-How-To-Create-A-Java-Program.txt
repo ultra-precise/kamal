@@ -1,0 +1,25 @@
+public class Distance {
+	public static void main(String[] args) {
+printDistance(args[0])
+}
+
+
+	public void printDistance(dist) {
+System.out.println(dist);
+}
+
+}
+
+---------------------------------
+Rule-1
+There should be only one "public class" in the file. Your filename should be exactly this class's name with 
+java file-extension. Example : 
+ClassName.java
+Distance.java
+
+Rule-2
+The entry point of file execution is "main" method, your program executes "main" method.
+
+Rule-3
+Other functions you can declare/define parallel to "main" method as siblings.
+
