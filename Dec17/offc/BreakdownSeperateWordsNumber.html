@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<body>
+<script>
+var array1;
+
+var str = `abc def 12 34 5,699 yyu uuiui 56 88,999`;
+
+var pattern = /([^0-9]+\s*)+\s([0-9]+,*[0-9]*\s*)+/g;
+
+//var pattern = /([^0-9]+\s*)+\s([0-9]+\s*)+/g;
+//var pattern = /([a-zA-Z]+\s*)+\s([0-9]+\s*)+/g;
+while ((array1 = pattern.exec(str)) !== null) {
+
+var a = array1[0];
+
+
+var p = document.createElement('p');
+p.textContent = a;
+document.body.appendChild(p);
+
+console.log(a);
+
+}
+
+
+
+</script>
+</body>
+</html>
