@@ -1,0 +1,45 @@
+class
+
+object
+
+field (property)
+
+method (function)
+
+arguments
+
+public
+
+private
+
+protected
+
+----------
+public
+
+Opens access to a certain field or method to be used outside the scope of the class.
+
+----------
+private
+
+Restricts access to a certain field or method to only be used within the scope of the class.
+
+----------
+protected
+
+Access to certain field or methods is reserved for classes that inherit the current class.
+More on this would be discussed in the section on inheritance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
