@@ -1,0 +1,46 @@
+Find x to the power of y
+
+
+function ss(x,y) {
+
+var square = Math.pow(x, 2);
+var exp = Math.pow(x, y);
+
+console.log(square + ", " + exp);
+
+}
+
+
+-----------------------------------
+Format x upto y digits after decimal point
+
+
+function dd(x,y) {
+
+
+//Not Accurate
+var decimal_y_places_NA = Number(x.toFixed(y));
+
+
+//Accurate
+var decimal_y_places_A = Number(String(x).split('').splice(0,String(x).indexOf('.')+1+y).join(''));
+
+
+console.log(decimal_y_places_NA + ", " + decimal_y_places_A);
+
+}
+-------------------
+Examples:
+
+x=9
+y=3
+ss(x,y);
+square = 9*9 = 81
+exp = 9*9*9 = 729
+
+
+x=2.4657891
+y=4
+dd(x,y);
+decimal_y_places_NA = 2.4658
+decimal_y_places_A(x,y) = 2.4657
