@@ -1,0 +1,32 @@
+Convert to array -
+
+var k = "abc"
+var array1 = [...k]           //Spread Operator
+var array1 = Array.from(k)   //Array.from
+
+Result -
+
+["a", "b", "c"]
+
+----------------------------------------------------
+Convert to Unique Array (array of unique elements) -
+
+var k = 'sgsppppp'
+var uniqueArray1 = [...new Set(k)]    //Set object
+
+Result -
+
+["s", "g", "p"]
+
+
+************************************
+All Tricks -
+
+
+[...k]                    //Spread Operator
+Array.from(k)            //Array.from
+[...new Set(k)]         //Set object
+
+
+
+========================================================
