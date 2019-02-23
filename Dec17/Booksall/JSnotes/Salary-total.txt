@@ -1,0 +1,15 @@
+
+var z=0;
+var x = 8000; //salary of first year
+var i=1;
+var s;
+var t =0;
+while (i<9){
+s = 12*(x+z);
+z+=1500;
+i++;
+t+=s;
+console.log('salary =' + s);
+
+}
+console.log('total salary of 8 years=' + t);
