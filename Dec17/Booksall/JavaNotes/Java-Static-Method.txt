@@ -1,0 +1,24 @@
+"static" Methods -
+
+
+Any method prefixed with "static" keyword is called static method. 
+Static methods can be called directly (in a static or non-object context).
+
+Non-static methods cannot be called directly, you can call it on an object-instance.
+
+Example:
+
+private static int intValue(String data) {
+  return Integer.parseInt(data);
+}
+
+intValue(args[0]); //directly calling the static method "intValue"
+
+public void printDistance() {
+    System.out.println("Distance between " + point0 + " and " + point1 + " is " + point0.distance(point1));
+}
+
+Distance dist = new Distance(
+dist.printDistance(); //calling non-static method on an object-instance
+}
+
