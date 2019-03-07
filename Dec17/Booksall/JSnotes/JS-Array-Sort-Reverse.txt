@@ -1,0 +1,12 @@
+function getSecondLargest(nums) {
+    // find 2nd largest number from "nums" array 
+
+    var c = nums.sort((a, b) => a - b).reverse();
+    var d = [...new Set(c)]
+    return d[1];
+   
+}
+
+var nums = [1, 5, 8, 16, 43];
+
+getSecondLargest(nums);
