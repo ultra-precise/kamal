@@ -1,0 +1,19 @@
+Components(Frameworks) of Selenium Suite:
+
+---------------------------
+Four Components [HSRC]
+
+
+Selenium RC ---> HTTP Proxy Server (to bypass Same Origin Policy tricking browser to believe that the requests are coming from the same domain)
+
+Selenium Grid ---> Screenshots (capturing browser screenshots, hub-and-nodes concept, simultaneous running multiple tests in multiple browsers and environments)
+
+Selenium IDE ---> Record-and-playback browser (Firefox extension)
+
+Selenium WebDriver ---> Control browser from OS level (bypass Same Origin Policy)
+
+----------------------------
+Selenium 1 ---> Selenium RC
+
+Selenium 2 ---> WebDriver + Selenium RC (merged, WebDriver being the core)
+
