@@ -1,0 +1,14 @@
+Manual Software Testing :
+
+Testing of software by test cases executed manually by a QA Analyst.
+QA Analyst generates test reports without the help of any automation software testing tools.
+Manual Testing is suitable for Exploratory, Usability and Adhoc Testing. It should also be used where the AUT changes frequently.
+
+
+
+-------------------
+Automation Software Testing :
+
+Testers write code/test scripts to automate test execution, by using appropriate automation tools.
+Goal is to complete test execution in less amount of time.
+Automated Testing is suited for Regression Testing, Performance Testing, Load Testing or highly repeatable functional test cases.
