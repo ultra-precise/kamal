@@ -1,0 +1,15 @@
+
+client side api
+introduction
+They have recognizable entry points
+
+
+current:
+third party apis
+What about Google Maps?
+
+drawing graphics/webgl
+
+client side storage.
+Web storage API
+Cookies
