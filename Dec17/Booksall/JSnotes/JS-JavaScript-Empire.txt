@@ -1,0 +1,9 @@
+JavaScript Empire :
+
+1. JavaScript
+2. Browser APIs - DOM
+3. Third Party APIs - Twitter, Facebook, Google
+4. JS Libraries - React, JQuery, Mootools
+5. JS Frameworks - Angular, Ember
+
+--------------------------------------
