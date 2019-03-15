@@ -1,0 +1,71 @@
+Private Sub breakdown()
+
+Dim db As Object
+Set db = CurrentDb
+'db.Execute ";", dbFailOnError
+
+Dim A1 As Variant
+Dim N1 As Variant
+
+Dim V1 As Variant
+Dim V2 As Variant
+
+A1 = Array(Array(563, 827, 693, 28), Array(2366, 2725, 2236, 31), _
+Array(1066, 1528, 1295, 24), Array(926, 1250, 1228, 24), _
+Array(1197, 1676, 1440, 35), Array(595, 799, 686, 28), Array(767, 1042, 919, 28), _
+Array(250, 401, 295, 10), Array(919, 919, 1183, 28), Array(1482, 1725, 1514, 35), _
+Array(771, 1482, 1098, 28), Array(478, 595, 475, 24), Array(1021, 1243, 1207, 28), _
+Array(316, 404, 359, 10), Array(771, 1038, 940, 31))
+
+
+
+V1 = Array("Microsoft Dynamics NAV", "MS Dynamics GP", "SAP NetWeaver", "SAP S/4 Hana")
+
+V2 = Array("AZ", "CA", "FL", "GA", "IL", "MD", "MI", "NV", "NJ", "NY", "OH", "OR", "PA", "UT", "VA")
+
+
+
+For w = 0 To 14
+
+N1 = A1(w)
+
+For v = 0 To 3
+
+
+db.Execute "update (select TOP " & N1(v) & " * from final " & _
+"where " & _
+"final.[Application Type] = """ & V1(v) & """ " & _
+"and " & _
+"final.[State] = """ & V2(w) & """ " & _
+") as Y " & _
+"set " & _
+"Y.qq = '1';"
+
+
+Next v
+
+Next w
+
+
+
+
+
+
+
+
+
+MsgBox "Done!"
+
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
