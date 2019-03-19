@@ -1,0 +1,11 @@
+Browser APIs Examples:
+
+1. DOM API
+2. Fetch API
+3. XMLHttpRequest API
+
+--------------------------
+Third-party APIs Examples:
+
+1. MAP APIs (MapQuest, Google Map)
+2. New York Times API
