@@ -1,0 +1,52 @@
+Drawing Techniques :
+
+-------------------------
+
+Move "Origin Point" of Canvas -
+
+The following line of code contains a new method, translate(), which moves the origin point of the canvas:
+
+
+ctx.translate(width/2, height/2);
+
+
+This causes the coordinate origin (0, 0) to be moved to the center of the canvas, rather than being at the top left corner. This is very useful in many situations, like this one, where we want our design to be drawn relative to the center of the canvas.
+
+
+--------------------
+Convert degree to radian -
+
+function degToRad(degrees) {
+  return degrees * Math.PI / 180;
+};
+
+-------------------
+random number between given min and max numbers -
+
+function rand(min, max) {
+  return Math.floor(Math.random() * (max-min+1)) + (min);
+}
+
+
+--------------------
+Why do we need to draw multiple frames to create an animation ?
+
+Note that on each frame we are completely clearing the canvas and redrawing everything. (We create a new ball on each frame (up to a maximum of 25), then for every ball draw it, update its position, and check to see if it is colliding with any other balls). Once you've drawn a graphic to a canvas, there's no way to manipulate that graphic individually like you can with DOM elements. You can't move each ball around on the canvas, because once it's drawn, it's part of the canvas, and is no longer a ball. Instead, you have to erase and redraw, either by erasing the entire frame and redrawing everything, or by having code that knows exactly what parts need to be erased and only erases and redraws the minimum area of the canvas necessary.
+
+
+---------------------
+onload image (do something after image is loaded completely) -
+
+
+var image = new Image();
+image.src = 'http://www.mdn.com/walk-right.png';
+image.onload = draw;
+
+OR
+
+var image = document.querySelector('img');
+image.src = 'http://www.mdn.com/walk-right.png';
+image.onload = draw;
+
+
+-------------------------
