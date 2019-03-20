@@ -1,0 +1,11 @@
+Remove Scrollbar :
+
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+</style>
+
+
+The scrollbars should now be gone.
