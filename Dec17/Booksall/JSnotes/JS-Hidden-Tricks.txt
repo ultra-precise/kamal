@@ -1,0 +1,49 @@
+JS-Hidden-Tricks -
+
+
+-------
+Exponentiation operator (**)
+
+Calculates the base to the exponent power, that is, baseexponent
+
+2 ** 3 returns 8
+10 ** -1 returns 0.1
+
+-----------------
+String newLine without backtick(`) -
+
+
+You can also escape line breaks by preceding them with backslash. The backslash and line break are both removed from the value of the string.
+
+var str = 'this string \
+is broken \
+across multiple \
+lines.'
+console.log(str);   // this string is broken across multiple lines.
+
+
+....................
+
+Although JavaScript does not have "heredoc" syntax, you can get close by adding a line break escape and an escaped line break at the end of each line:
+
+var poem = 
+'Roses are red,\n\
+Violets are blue.\n\
+Sugar is sweet,\n\
+and so is foo.'
+
+...................
+
+ECMAScript 2015 introduces a new type of literal, namely template literals. This allows for many new features including multiline strings!
+
+var poem = 
+`Roses are red, 
+Violets are blue. 
+Sugar is sweet, 
+and so is foo.`
+
+
+
+===============
+
+
