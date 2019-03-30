@@ -1,0 +1,64 @@
+String is immutable array-like object -
+
+
+A String object has one property, "length", that indicates the number of UTF-16 code units in the string. For example, the following code assigns "x" the value 13, because "Hello, World!" has 13 characters, each represented by one UTF-16 code unit. You can access each code unit using an array bracket style. 
+
+You can't change individual characters of string because strings are immutable array-like objects:
+
+
+const hello = 'Hello, World!';
+const helloLength = hello.length;
+hello[0] = 'L'; // This has no effect, because strings are immutable
+hello[0]; // This returns "H"
+
+--------------
+
+Methods of String -
+
+repeat
+returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+
+
+startsWith, endsWith, includes
+Returns whether or not the string starts, ends or contains a specified string.
+
+
+indexOf, lastIndexOf
+Return the position of specified substring in the string or last position of specified substring, respectively.
+
+
+split
+Splits a String object into an array of strings by separating the string into substrings.
+
+
+slice
+Extracts a section of a string and returns a new string.
+
+
+substring, substr
+returns the part of the string between the start and end indexes, or to the end of the string.
+
+
+match, matchAll, replace, search
+Work with regular expressions.
+
+
+toLowerCase, toUpperCase
+Return the string in all lowercase or all uppercase, respectively.
+
+trim
+Trims whitespace from the beginning and end of the string.
+
+concat
+Combines the text of two strings and returns a new string.
+
+
+
+
+
+
+
+
+
+
+
