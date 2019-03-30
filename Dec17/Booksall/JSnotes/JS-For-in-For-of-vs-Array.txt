@@ -1,0 +1,10 @@
+for...in with Array -
+
+Why we should not use for...in loop on Array ?
+
+Although it may be tempting to use "for...in" as a way to iterate over Array elements, the for...in statement will return the name of your user-defined properties and methods in addition to the numeric indexes. Thus it is better to use a traditional for loop with a numeric index when iterating over arrays, because the for...in statement iterates over user-defined properties and methods in addition to the array elements, if you modify the Array object, such as adding custom properties or methods.
+
+-------------
+difference between a for...of loop and a for...in loop. 
+While for...in iterates over property names, 
+for...of iterates over property values
