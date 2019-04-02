@@ -1,0 +1,58 @@
+Singleton Class -
+
+A singleton class is a design pattern that restricts a class to a single instance. When we assign the value of new function(){...} to a variable, the following happens:
+
+We define an anonymous constructor function.
+We invoke the anonymous constructor function with the new keyword.
+
+EXAMPLE
+
+'use strict';
+
+let lime = new function() {
+    this.type = 'Mexican lime';
+    this.color = 'green';
+    this.getInformation = function() {
+        return 'This ' + this.type + ' is ' + this.color + '.';
+    };
+}
+
+console.log(lime.getInformation());
+
+lime.color = 'yellow';
+console.log(lime.getInformation());
+
+---------------------
+Constructor Method of a Class -
+
+
+The constructor method is a special method we use to create and initialize objects of a class.
+
+A class can only have one special method with the name constructor, and attempting to write a class containing more than one constructor method will throw a SyntaxError.
+
+To implement inheritance, we can use the super keyword in a constructor to call a parent class constructor.
+
+
+--------------------
+Static Methods -
+
+Static methods are methods relevant to all instances of a class — not just any one instance. These methods receive information from their arguments and not a class instance, which allows us to invoke a class' static methods without creating an instance of the class. In fact, we actually can't call a static method on an instantiated class object (attempting to do so throws a TypeError).
+
+We define a class' static methods using the static keyword. We typically use these methods to create utility functions for applications, as they can't be called on class objects.
+
+-----------------------
+super Keyword -
+
+We use the super keyword to call functions on an object's parent.
+
+
+
+---------------------------------
+
+
+
+
+
+
+
+
