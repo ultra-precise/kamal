@@ -1,0 +1,28 @@
+For Maximum/Minimum calculations -
+Using Array is slower,
+instead you should define a global max/min variable and update its value inside 
+each "for loop".
+
+
+function getMaxLessThanK(n, k) {
+    var A = [];
+    for (let i = 0; i < n; i++) {
+        A[i] = i + 1;
+    }
+
+    var maxk = 0; //global max variable
+
+    for (let j = 0; j < A.length - 1; j++) {
+
+        for (let p = j + 1; p < A.length; p++) {
+
+            var c = A[j] & A[p];
+            if (c < k && c>maxk) { maxk = c; }
+
+        }
+
+    }
+
+    return (maxk);
+
+}
