@@ -1,0 +1,25 @@
+JS-Array-Like-Objects -
+
+
+Array like objects look and behave like arrays on the surface but do not share all of array's methods. 
+
+----------------------------
+Solution-1:
+Convert Array-Like-Object to Array.
+
+
+var array1 = Array.from(Array-Like-Object);
+
+----------------------------
+Solution-2:
+Array prototype methods can be called against Array-Like-Object using "call" method.
+
+
+Array.prototype.forEach.call(Array-Like-Object, function(k) {
+    console.log(k);
+});
+
+==================
+
+
+
