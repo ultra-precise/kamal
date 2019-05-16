@@ -1,0 +1,7 @@
+#Persistent
+SetTimer, PressTheKey, 5000
+Return
+
+PressTheKey:
+Send, {NumLock}
+Return
